@@ -10,6 +10,9 @@ public class ShieldMovement : MonoBehaviour
     private float _cooldown;
     private bool moved = false;
 
+    private int xDir;
+    private int yDir;
+
     private bool shieldActive = false;
 
     [SerializeField]private Transform leftPos;
@@ -23,6 +26,8 @@ public class ShieldMovement : MonoBehaviour
     }
     private void Update()
     {
+        xDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Horizontal"));
+        yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
         if (moved)
         {
             _cooldown -= Time.deltaTime;
@@ -34,32 +39,31 @@ public class ShieldMovement : MonoBehaviour
         }
         else if(shieldActive)
         {
-            if (Input.GetButton("Right") && Input.GetButton("Up"))
+            if (xDir == 1 && yDir == 1)
             {
                 shield.position = upRightPos.position;
                 shield.rotation = upRightPos.rotation;
                 moved = true;
             }
-            else if (Input.GetButton("Left") && Input.GetButton("Up"))
+            else if (xDir == -1 && yDir == 1)
             {
                 shield.position = upLeftPos.position;
                 shield.rotation = upLeftPos.rotation;
                 moved = true;
             }
-            else if (Input.GetButton("Right") /*|| Input.GetButtonUp("Up") && Input.GetButton("Right")*/)
+            else if (xDir == 1 && yDir == 0)
             {
                 shield.position = rightPos.position;
                 shield.rotation = rightPos.rotation;
                 moved = true;
             }
-            else if (Input.GetButton("Left") /*|| Input.GetButtonUp("Up") && Input.GetButton("Left")*/)
+            else if (xDir == -1 && yDir == 0)
             {
                 shield.position = leftPos.position;
                 shield.rotation = leftPos.rotation;
                 moved = true;
             }
-            else if (Input.GetButton("Up") /*|| Input.GetButtonUp("Right") && Input.GetButton("Up")*/
-                /*|| Input.GetButtonUp("Left") && Input.GetButton("Up")*/)
+            else if (yDir == 1)
             {
                 shield.position = upPos.position;
                 shield.rotation = upPos.rotation;
