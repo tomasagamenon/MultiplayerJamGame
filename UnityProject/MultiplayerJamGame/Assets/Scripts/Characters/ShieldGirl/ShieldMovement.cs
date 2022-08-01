@@ -6,6 +6,8 @@ public class ShieldMovement : MonoBehaviour
 {
     public Transform shield;
 
+    private Animator animator;
+
     private float cooldown = 0.15f;
     private float _cooldown;
     private bool moved = false;
@@ -22,12 +24,15 @@ public class ShieldMovement : MonoBehaviour
     [SerializeField] private Transform upRightPos;
     private void Start()
     {
+        animator = GetComponent<Animator>();
         _cooldown = cooldown;
     }
     private void Update()
     {
         xDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Horizontal"));
         yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
+        animator.SetInteger("XDir", xDir);
+        animator.SetInteger("YDir", yDir);
         if (moved)
         {
             _cooldown -= Time.deltaTime;
@@ -68,6 +73,11 @@ public class ShieldMovement : MonoBehaviour
                 shield.position = upPos.position;
                 shield.rotation = upPos.rotation;
                 moved = true;
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Tocaste para pushear");
+                shield.GetComponent<Shield>().Push();
             }
         }
     }

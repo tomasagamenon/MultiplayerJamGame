@@ -21,6 +21,7 @@ public class CharacterMovement : MonoBehaviour
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private int remainingJumps = 1;
 	private Rigidbody2D m_Rigidbody2D;
+	private Animator animator;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
@@ -38,6 +39,7 @@ public class CharacterMovement : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -51,6 +53,12 @@ public class CharacterMovement : MonoBehaviour
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
+		if (m_Rigidbody2D.velocity.y < 0 && !m_Grounded)
+		{
+			animator.SetBool("Falling", true);
+		}
+		else
+			animator.SetBool("Falling", false);
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
