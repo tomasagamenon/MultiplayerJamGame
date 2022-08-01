@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orc_run_strip_0
+      name: orc_run_strip_3
       rect:
         serializedVersion: 2
-        x: 41
-        y: 18
-        width: 32
-        height: 57
+        x: 336
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,13 +125,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_1
+      name: orc_run_strip_2
       rect:
         serializedVersion: 2
-        x: 149
-        y: 22
-        width: 37
-        height: 54
+        x: 224
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,13 +146,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_2
+      name: orc_run_strip_6
       rect:
         serializedVersion: 2
-        x: 261
-        y: 24
-        width: 37
-        height: 53
+        x: 672
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,13 +167,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_3
+      name: orc_run_strip_7
       rect:
         serializedVersion: 2
-        x: 378
+        x: 784
         y: 16
-        width: 25
-        height: 58
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,13 +188,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_4
+      name: orc_run_strip_5
       rect:
         serializedVersion: 2
-        x: 492
-        y: 17
-        width: 30
-        height: 58
+        x: 560
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,13 +209,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_5
+      name: orc_run_strip_1
       rect:
         serializedVersion: 2
-        x: 601
-        y: 22
-        width: 35
-        height: 54
+        x: 112
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,13 +230,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_6
+      name: orc_run_strip_0
       rect:
         serializedVersion: 2
-        x: 713
-        y: 25
-        width: 33
-        height: 52
+        x: 0
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,13 +251,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_run_strip_7
+      name: orc_run_strip_4
       rect:
         serializedVersion: 2
-        x: 830
+        x: 448
         y: 16
-        width: 21
-        height: 58
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,14 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      orc_run_strip_3: -56910138
-      orc_run_strip_2: -583075518
-      orc_run_strip_6: -1418119129
-      orc_run_strip_7: -510211634
-      orc_run_strip_5: -1953993316
-      orc_run_strip_1: -453395068
-      orc_run_strip_0: -1731107440
-      orc_run_strip_4: 459762624
+      orc_run_strip_3: -1731107440
+      orc_run_strip_2: -453395068
+      orc_run_strip_6: -583075518
+      orc_run_strip_7: -56910138
+      orc_run_strip_5: 459762624
+      orc_run_strip_1: -1953993316
+      orc_run_strip_0: -1418119129
+      orc_run_strip_4: -510211634
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

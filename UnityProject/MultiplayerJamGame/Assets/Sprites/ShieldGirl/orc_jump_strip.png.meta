@@ -107,10 +107,10 @@ TextureImporter:
       name: orc_jump_strip_0
       rect:
         serializedVersion: 2
-        x: 45
+        x: 0
         y: 16
-        width: 35
-        height: 61
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: orc_jump_strip_1
       rect:
         serializedVersion: 2
-        x: 154
-        y: 17
-        width: 38
-        height: 61
+        x: 112
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: orc_jump_strip_2
       rect:
         serializedVersion: 2
-        x: 265
-        y: 18
-        width: 34
-        height: 59
+        x: 224
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: orc_jump_strip_3
       rect:
         serializedVersion: 2
-        x: 376
-        y: 21
-        width: 33
-        height: 56
+        x: 336
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: orc_jump_strip_4
       rect:
         serializedVersion: 2
-        x: 490
-        y: 21
-        width: 29
-        height: 55
+        x: 448
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: orc_jump_strip_5
       rect:
         serializedVersion: 2
-        x: 603
-        y: 18
-        width: 26
-        height: 58
+        x: 560
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: orc_jump_strip_6
       rect:
         serializedVersion: 2
-        x: 716
-        y: 18
-        width: 24
-        height: 58
+        x: 672
+        y: 16
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

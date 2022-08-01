@@ -107,10 +107,10 @@ TextureImporter:
       name: orc_idle_strip_0
       rect:
         serializedVersion: 2
-        x: 35
+        x: 0
         y: 16
-        width: 35
-        height: 58
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: orc_idle_strip_1
       rect:
         serializedVersion: 2
-        x: 147
+        x: 112
         y: 16
-        width: 35
-        height: 57
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: orc_idle_strip_2
       rect:
         serializedVersion: 2
-        x: 259
+        x: 224
         y: 16
-        width: 35
-        height: 56
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: orc_idle_strip_3
       rect:
         serializedVersion: 2
-        x: 371
+        x: 336
         y: 16
-        width: 35
-        height: 56
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: orc_idle_strip_4
       rect:
         serializedVersion: 2
-        x: 483
+        x: 448
         y: 16
-        width: 35
-        height: 57
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: orc_idle_strip_5
       rect:
         serializedVersion: 2
-        x: 595
+        x: 560
         y: 16
-        width: 35
-        height: 58
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: orc_idle_strip_6
       rect:
         serializedVersion: 2
-        x: 707
+        x: 672
         y: 16
-        width: 35
-        height: 59
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: orc_idle_strip_7
       rect:
         serializedVersion: 2
-        x: 819
+        x: 784
         y: 16
-        width: 35
-        height: 59
+        width: 112
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

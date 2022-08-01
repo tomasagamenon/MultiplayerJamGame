@@ -22,7 +22,8 @@ public class CharacterMovement : MonoBehaviour
 	private int remainingJumps = 1;
 	private Rigidbody2D m_Rigidbody2D;
 	private Animator animator;
-	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	private SpriteRenderer sprite;
+	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
 	[Header("Events")]
@@ -40,6 +41,7 @@ public class CharacterMovement : MonoBehaviour
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		sprite = GetComponent<SpriteRenderer>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -132,12 +134,24 @@ public class CharacterMovement : MonoBehaviour
 			{
 				// ... flip the player.
 				Flip();
+                if (walk)
+                {
+					//sprite.flipX = false;
+                }
 			}
 			// Otherwise if the input is moving the player left and the player is facing right...
 			else if (move < 0 && m_FacingRight)
 			{
 				// ... flip the player.
 				Flip();
+                if (walk)
+                {
+					//sprite.flipX = true;
+                }
+                else
+                {
+					//sprite.flipX = false;
+                }
 			}
 		}
 		// If the player should jump...
