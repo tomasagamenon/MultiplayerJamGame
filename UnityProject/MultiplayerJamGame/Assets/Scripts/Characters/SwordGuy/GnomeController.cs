@@ -28,12 +28,12 @@ public class GnomeController : MonoBehaviour
         if (view.IsMine)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            //animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
-                animator.SetTrigger("Jumping");
-                animator.SetBool("Falling", false);
+                //animator.SetTrigger("Jumping");
+                //animator.SetBool("Falling", false);
             }
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {

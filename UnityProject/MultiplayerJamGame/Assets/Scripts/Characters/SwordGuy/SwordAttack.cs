@@ -12,7 +12,7 @@ public class SwordAttack : MonoBehaviour
     public float attackRate = 3f;
     private float attackCooldown = 0f;
 
-    private void Update()
+    void Update()
     {
         if(Time.time >= attackCooldown)
         {

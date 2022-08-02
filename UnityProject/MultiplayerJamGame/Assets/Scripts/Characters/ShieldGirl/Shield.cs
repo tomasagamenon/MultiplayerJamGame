@@ -11,6 +11,7 @@ public class Shield : MonoBehaviour
     public float pushUpwardEffect = 2.0f;
     public float pushCost = 15f;
     public Transform pushPointA, pushPointB;
+    public Collider2D pushCollider;
     public LayerMask pushLayers;
     public Transform player;
     private Stamina stamina;
