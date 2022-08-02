@@ -8,6 +8,7 @@ public class Dash : MonoBehaviour
     public float dashTime = 0.4f;
     public float doubleTapMargin = 0.3f;
     public float downwardForce = -0.5f;
+    public float staminaCost = 15f;
     public bool isDashing = false;
     public GameObject dashCollider;
     public Collider2D[] playerColliders;
@@ -15,17 +16,20 @@ public class Dash : MonoBehaviour
     KeyCode lastKey;
 
     private Rigidbody2D rb;
+    private Stamina stamina;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        stamina = GetComponent<Stamina>();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if(doubleTapTime > Time.time && lastKey == KeyCode.A)
+            if(doubleTapTime > Time.time && lastKey == KeyCode.A && stamina.EnoughStamina(staminaCost))
             {
                 StartCoroutine(MakeDash(-1f));
+                stamina.SpendStamina(staminaCost);
             }
             else
             {
@@ -35,9 +39,10 @@ public class Dash : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (doubleTapTime > Time.time && lastKey == KeyCode.D)
+            if (doubleTapTime > Time.time && lastKey == KeyCode.D && stamina.EnoughStamina(staminaCost))
             {
                 StartCoroutine(MakeDash(1f));
+                stamina.SpendStamina(staminaCost);
             }
             else
             {

@@ -27,28 +27,23 @@ public class WeaponMovement : MonoBehaviour
         {
             if (xDir == 1 && yDir == 1)
             {
-                shootingPoint.position = upRightPos.position;
-                shootingPoint.rotation = upRightPos.rotation;
+                shootingPoint.SetPositionAndRotation(upRightPos.position, upRightPos.rotation);
             }
             else if (xDir == -1 && yDir == 1)
             {
-                shootingPoint.position = upLeftPos.position;
-                shootingPoint.rotation = upLeftPos.rotation;
+                shootingPoint.SetPositionAndRotation(upLeftPos.position, upLeftPos.rotation);
             }
             else if (xDir == 1 && yDir == 0)
             {
-                shootingPoint.position = rightPos.position;
-                shootingPoint.rotation = rightPos.rotation;
+                shootingPoint.SetPositionAndRotation(rightPos.position, rightPos.rotation);
             }
             else if (xDir == -1 && yDir == 0)
             {
-                shootingPoint.position = leftPos.position;
-                shootingPoint.rotation = leftPos.rotation;
+                shootingPoint.SetPositionAndRotation(leftPos.position, leftPos.rotation);
             }
             else if (yDir == 1)
             {
-                shootingPoint.position = upPos.position;
-                shootingPoint.rotation = upPos.rotation;
+                shootingPoint.SetPositionAndRotation(upPos.position, upPos.rotation);
             }
         }
     }

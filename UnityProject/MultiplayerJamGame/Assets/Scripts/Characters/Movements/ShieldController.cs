@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class ShieldController : MonoBehaviour
 {
     public float speed = 40f;
     private CharacterMovement characterMov;
