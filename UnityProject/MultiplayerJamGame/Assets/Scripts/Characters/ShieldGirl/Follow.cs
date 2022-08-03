@@ -5,8 +5,9 @@ using UnityEngine;
 public class Follow : MonoBehaviour
 {
     public Transform t;
+    public Vector3 offset;
     void Update()
     {
-        transform.position = t.position;
+        transform.position = t.position + offset;
     }
 }
