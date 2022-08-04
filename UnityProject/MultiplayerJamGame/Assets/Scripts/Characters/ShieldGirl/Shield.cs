@@ -40,11 +40,9 @@ public class Shield : MonoBehaviour
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("El escudo toco algo");
+    {   
         if (collision.gameObject.CompareTag("Enemy") && stamina.EnoughStamina(shieldCost))
         {
-            Debug.Log("Defendiste, fiera");
             Vector2 dir = (Vector2)collision.transform.position - collision.GetContact(0).point
                 + new Vector2(0f, shieldUpwardEffect);
             dir = dir.normalized;
