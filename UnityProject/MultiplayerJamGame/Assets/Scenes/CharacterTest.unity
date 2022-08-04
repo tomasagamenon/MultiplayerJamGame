@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 333554950}
   - component: {fileID: 333554952}
   - component: {fileID: 333554953}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Laser Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70f678b2d595754c82e18ea0ca5c61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushOffset: {x: 0, y: 5}
+  pushOffset: {x: 0, y: 0}
   knockback: 15
 --- !u!1 &493102220
 GameObject:
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 1168981108}
   - component: {fileID: 1168981107}
   - component: {fileID: 1168981111}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Laser Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,6 +1381,7 @@ MonoBehaviour:
     m_Bits: 243
   raycastLenght: 15
   stopCooldown: 1
+  turnedOff: 0
 --- !u!95 &1168981108
 Animator:
   serializedVersion: 4
@@ -1460,8 +1461,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168981106}
-  m_LocalRotation: {x: -0, y: -0, z: 0.00000016391276, w: 1}
-  m_LocalPosition: {x: 4, y: 0.29999995, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000008940696, w: 1}
+  m_LocalPosition: {x: 4.000001, y: 0.3000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1852,7 +1853,7 @@ GameObject:
   - component: {fileID: 1662558191}
   - component: {fileID: 1662558192}
   - component: {fileID: 1662558194}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Laser Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

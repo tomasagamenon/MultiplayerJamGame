@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserHorizontal : MonoBehaviour
+public class LaserPointing : MonoBehaviour
 {
     public GameObject laserMedium;
     public SpriteRenderer medium;
@@ -29,7 +29,7 @@ public class LaserHorizontal : MonoBehaviour
         if (stopped && !turnedOff)
         {
             cooldown -= Time.deltaTime;
-            if (cooldown <= 0)
+            if(cooldown <= 0)
             {
                 SetPosition();
                 cooldown = stopCooldown;
@@ -38,18 +38,17 @@ public class LaserHorizontal : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!stopped && !turnedOff)
+        if(!stopped && !turnedOff)
             SetPosition();
     }
     private void SetPosition()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.75f), -transform.up, raycastLenght, layer);
-        if (hit.point != (Vector2)laserPoint.transform.position)
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), -transform.up, raycastLenght, layer);
+        if(hit.point != (Vector2)laserPoint.transform.position)
         {
             laserPoint.transform.position = hit.point;
-            Vector2 place = new Vector2(laserPoint.transform.position.x, point.bounds.size.y + laserPoint.transform.position.y);
-            float scaleX = Mathf.Abs(transform.position.x - laserPoint.transform.position.x);
-            float scaleY = Mathf.Abs(transform.position.y - laserPoint.transform.position.y - point.bounds.size.y);
+            Vector2 place = new Vector2(laserPoint.transform.position.x, laserPoint.transform.position.y);
+            float scaleY = Vector2.Distance(transform.position, laserPoint.transform.position);
             if (scaleY < 0.05)
             {
                 LaserStop();
@@ -64,7 +63,7 @@ public class LaserHorizontal : MonoBehaviour
             medium.drawMode = SpriteDrawMode.Tiled;
             medium.size = new Vector2(1, scaleY);
             laserMedium.GetComponent<BoxCollider2D>().size = new Vector2(0.1f, scaleY);
-            Vector2 offset = new Vector2(0, medium.bounds.size.y) / 2;
+            Vector2 offset = new Vector2(0, scaleY / 2);
             laserMedium.GetComponent<BoxCollider2D>().offset = offset;
         }
     }
