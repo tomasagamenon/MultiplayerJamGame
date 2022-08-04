@@ -35,12 +35,23 @@ public class ShieldController : MonoBehaviour
                 animator.SetTrigger("Jumping");
                 animator.SetBool("Falling", false);
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow))
             {
+                if (shield)
+                    return;
                 shieldMov.ToggleShield();
-                shield = !shield;
+                shield = true;
                 animator.SetBool("Shield", shield);
             }
+            else
+            {
+                if (!shield)
+                    return;
+                shieldMov.ToggleShield();
+                shield = false;
+                animator.SetBool("Shield", shield);
+            }
+
         }
     }
     private void FixedUpdate()
