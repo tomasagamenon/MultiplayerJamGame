@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: c72f6fedf26824a43bdb8e70e0a088dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: gnome_roll_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: b6a568664a0fa8740abe22b43780727c
+      internalID: 699993808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: gnome_roll_1
       rect:
         serializedVersion: 2
         x: 80
@@ -139,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: af69cc40a5e6e784293b5a53bedbfe6e
+      internalID: 367471993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: gnome_roll_2
       rect:
         serializedVersion: 2
         x: 160
@@ -160,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 0e3dc648168ca7b40878b7a16153f395
+      internalID: -1008849601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: gnome_roll_3
       rect:
         serializedVersion: 2
         x: 240
@@ -181,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
+      spriteID: d8e69bcf340d0404288250e1642aba53
+      internalID: 1673292966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_4
+      name: gnome_roll_4
       rect:
         serializedVersion: 2
         x: 320
@@ -202,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
+      spriteID: 0e21f5de99f503c48ab4cf21039fa936
+      internalID: 915575961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_5
+      name: gnome_roll_5
       rect:
         serializedVersion: 2
         x: 400
@@ -223,8 +235,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: a6a471a8b62219747aa3a8462028e25c
+      internalID: 549387304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_roll_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca9750755353854695767c9868e6a6b
+      internalID: 905825856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_roll_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7941306cf3c0444f9d612f2bd95b6c9
+      internalID: 1692871416
       vertices: []
       indices: 
       edges: []
@@ -240,12 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      gnome_roll_5: 549387304
+      gnome_roll_0: 699993808
+      gnome_roll_1: 367471993
+      gnome_roll_3: 1673292966
+      gnome_roll_4: 915575961
+      gnome_roll_7: 1692871416
+      gnome_roll_6: 905825856
+      gnome_roll_2: -1008849601
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -53,6 +53,7 @@ public class Dash : MonoBehaviour
     }
     IEnumerator MakeDash(float direction)
     {
+        GetComponent<Animator>().SetTrigger("Rollking");
         isDashing = true;
         float gravity = rb.gravityScale;
         rb.gravityScale = 0;

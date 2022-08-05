@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: 2928df764657f754fba5c45e73ed2b07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: Borc_jump_0
       rect:
         serializedVersion: 2
         x: 0
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: d1322661b02d17b4e933be8a195d79e3
+      internalID: 1794909781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: Borc_jump_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 112
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: ba26296693894f74ea910ef81656a580
+      internalID: 1553051025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: Borc_jump_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 224
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 12d75131ca968df4b92bfc59e16df2f0
+      internalID: 812929408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: Borc_jump_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 336
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
+      spriteID: 162dbb246d061714ab7a6b336e35bce3
+      internalID: -2034906393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_4
+      name: Borc_jump_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
+      spriteID: 8bbdce59d9eeb8a4aafeab56675ad712
+      internalID: -159005735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_5
+      name: Borc_jump_5
       rect:
         serializedVersion: 2
-        x: 400
+        x: 560
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +235,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: 46eb76744857c6346a8a69291bf9c2e7
+      internalID: -1232227377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borc_jump_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 16
+        width: 112
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deeaa84098e0415438e40efc130f3548
+      internalID: -1023367146
       vertices: []
       indices: 
       edges: []
@@ -240,12 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      Borc_jump_3: -2034906393
+      Borc_jump_6: -1023367146
+      Borc_jump_5: -1232227377
+      Borc_jump_0: 1794909781
+      Borc_jump_4: -159005735
+      Borc_jump_2: 812929408
+      Borc_jump_1: 1553051025
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: c1d976219ad45ac49a548779c60c4e1c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: Borc_fall_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 80
-        height: 64
+        y: 17
+        width: 112
+        height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: 0960366267e00094a855d1743f2460d2
+      internalID: -872866329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: Borc_fall_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 16
-        width: 80
-        height: 64
+        x: 112
+        y: 17
+        width: 112
+        height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: ffc6f8ea2a5c0f542a745b4b8ae06f08
+      internalID: -1021828197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: Borc_fall_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 16
-        width: 80
-        height: 64
+        x: 224
+        y: 17
+        width: 112
+        height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 881d4818df7994d4fa091d542ff4cc1d
+      internalID: -176248876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: Borc_fall_3
       rect:
         serializedVersion: 2
-        x: 240
-        y: 16
-        width: 80
-        height: 64
+        x: 336
+        y: 17
+        width: 112
+        height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,50 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gnome_idle_4
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 16
-        width: 80
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gnome_idle_5
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 16
-        width: 80
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: 39a1291402ffb344b942483554ab1bee
+      internalID: 103356789
       vertices: []
       indices: 
       edges: []
@@ -240,12 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      Borc_fall_0: -872866329
+      Borc_fall_2: -176248876
+      Borc_fall_3: 103356789
+      Borc_fall_1: -1021828197
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

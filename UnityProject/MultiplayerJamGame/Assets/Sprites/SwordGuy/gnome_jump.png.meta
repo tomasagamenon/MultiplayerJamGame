@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: 30fb3e78f02c40448b8fd281887b4984
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: gnome_jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: c1a5074192c4e4944bc7c2094cdd81d9
+      internalID: 1095401845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: gnome_jump_1
       rect:
         serializedVersion: 2
         x: 80
@@ -139,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: 650466b82900ee742a364c8e2813980c
+      internalID: -556794268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: gnome_jump_2
       rect:
         serializedVersion: 2
         x: 160
@@ -160,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 84ab6a7c4b697ee42846641e6671e550
+      internalID: -1102574480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: gnome_jump_3
       rect:
         serializedVersion: 2
         x: 240
@@ -181,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
+      spriteID: 97c787db0a8f9bd489bb01e5b63c0690
+      internalID: -1869998994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_4
+      name: gnome_jump_4
       rect:
         serializedVersion: 2
         x: 320
@@ -202,29 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gnome_idle_5
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 16
-        width: 80
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: ca0b2521b8f296841ae1e3c4985a59d0
+      internalID: 2088068971
       vertices: []
       indices: 
       edges: []
@@ -240,12 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      gnome_jump_2: -1102574480
+      gnome_jump_3: -1869998994
+      gnome_jump_4: 2088068971
+      gnome_jump_0: 1095401845
+      gnome_jump_1: -556794268
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

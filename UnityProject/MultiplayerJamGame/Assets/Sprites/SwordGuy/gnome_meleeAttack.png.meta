@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: b39beca505f60dd4fbba2bfb1d1b3fe6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: gnome_meleeAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: 86a47f57c4b45654b809bbda5fcffbd6
+      internalID: 1843122886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: gnome_meleeAttack_1
       rect:
         serializedVersion: 2
         x: 80
@@ -139,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: f438cafa31ef04548b7dd26ce869e6da
+      internalID: 319823430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: gnome_meleeAttack_2
       rect:
         serializedVersion: 2
         x: 160
@@ -160,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 8831b069e10b9fc46a74b94f227dd7de
+      internalID: -621954854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: gnome_meleeAttack_3
       rect:
         serializedVersion: 2
         x: 240
@@ -181,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
+      spriteID: 6153a81364d77494da4fadc73952c76b
+      internalID: 606751170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_4
+      name: gnome_meleeAttack_4
       rect:
         serializedVersion: 2
         x: 320
@@ -202,14 +214,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
+      spriteID: f70699284e86a61439245d6e005f4f46
+      internalID: -193520936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_5
+      name: gnome_meleeAttack_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7aef3ece6b9744c92a999826a4ed99
+      internalID: -1581492922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_meleeAttack_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908a07e49aba0044e8896ef401bbd2a2
+      internalID: 1511246762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_meleeAttack_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8264412c09e77464cb7aca161ba95e8c
+      internalID: -1984714107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_meleeAttack_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 16
+        width: 80
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9358c4baf147baf47a1759853e4ba7e6
+      internalID: 1139050226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome_meleeAttack_5
       rect:
         serializedVersion: 2
         x: 400
@@ -223,8 +319,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: 682c92c2b8a975344a91bc9c4e7a62dd
+      internalID: -2079237430
       vertices: []
       indices: 
       edges: []
@@ -240,12 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      gnome_meleeAttack_9: 1139050226
+      gnome_meleeAttack_1: 319823430
+      gnome_meleeAttack_4: -193520936
+      gnome_meleeAttack_5: -2079237430
+      gnome_meleeAttack_3: 606751170
+      gnome_meleeAttack_7: 1511246762
+      gnome_meleeAttack_6: -1581492922
+      gnome_meleeAttack_2: -621954854
+      gnome_meleeAttack_8: -1984714107
+      gnome_meleeAttack_0: 1843122886
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

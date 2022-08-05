@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765136f60c91c9d45b8378bb77668693
+guid: f5c66ed3848af0d448f852279a35a082
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gnome_idle_0
+      name: Borc_blockDiagonalLeft_WalkRight_0
       rect:
         serializedVersion: 2
         x: 0
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f3d942f3a306548a4f58df990a0d06
-      internalID: 2007450009
+      spriteID: 94cb6c15557ced64ca68e22d64aa08b0
+      internalID: -1044914278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_1
+      name: Borc_blockDiagonalLeft_WalkRight_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 112
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c516e14f15fef74a8fd2d111e914a17
-      internalID: 1630694538
+      spriteID: 9fc42f8a5dd3099499cb683dded28d99
+      internalID: -1405874952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_2
+      name: Borc_blockDiagonalLeft_WalkRight_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 224
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26365fcca22dd6445bf7a67ce2ac318c
-      internalID: -1350964145
+      spriteID: 19b8eb718441f324d9ab878a185e33ed
+      internalID: -1381785443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_3
+      name: Borc_blockDiagonalLeft_WalkRight_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 336
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3a8d1b012604b419127161242e2b21
-      internalID: -880361243
+      spriteID: 7c3e01fa5810f114c9e84804cb1fb8b3
+      internalID: -214298642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_4
+      name: Borc_blockDiagonalLeft_WalkRight_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcea12445a97c4fa13869b259ae0f8
-      internalID: -809772405
+      spriteID: 91842faf746f9d040b4de546213ecc70
+      internalID: 1581666608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gnome_idle_5
+      name: Borc_blockDiagonalLeft_WalkRight_5
       rect:
         serializedVersion: 2
-        x: 400
+        x: 560
         y: 16
-        width: 80
-        height: 64
+        width: 112
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +235,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ee062b4e4945645bc9bae93067bae1
-      internalID: 1048337287
+      spriteID: 560987a92e1728749a53d85c1d917cbc
+      internalID: 1633210407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borc_blockDiagonalLeft_WalkRight_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 16
+        width: 112
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb12d50e49c7e7642976f62aa14c5bee
+      internalID: -1680271665
       vertices: []
       indices: 
       edges: []
@@ -240,12 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gnome_idle_0: 2007450009
-      gnome_idle_4: -809772405
-      gnome_idle_5: 1048337287
-      gnome_idle_3: -880361243
-      gnome_idle_1: 1630694538
-      gnome_idle_2: -1350964145
+      Borc_blockDiagonalLeft_WalkRight_3: -214298642
+      Borc_blockDiagonalLeft_WalkRight_6: -1680271665
+      Borc_blockDiagonalLeft_WalkRight_2: -1381785443
+      Borc_blockDiagonalLeft_WalkRight_4: 1581666608
+      Borc_blockDiagonalLeft_WalkRight_1: -1405874952
+      Borc_blockDiagonalLeft_WalkRight_5: 1633210407
+      Borc_blockDiagonalLeft_WalkRight_0: -1044914278
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

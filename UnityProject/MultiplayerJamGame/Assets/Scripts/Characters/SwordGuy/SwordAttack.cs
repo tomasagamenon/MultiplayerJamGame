@@ -14,7 +14,7 @@ public class SwordAttack : MonoBehaviour
 
     void Update()
     {
-        if(Time.time >= attackCooldown)
+        if (Time.time >= attackCooldown)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -25,7 +25,7 @@ public class SwordAttack : MonoBehaviour
     }
     private void Attack()
     {
-        //call animation
+        GetComponent<Animator>().SetTrigger("Attacking");
         DoDamage();
     }
     //later call this at the right time in the animation
