@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7625118558134815234}
   - component: {fileID: 7625118558134815262}
   - component: {fileID: 7625118558134815263}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Debree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  lifeTime: 5
 --- !u!50 &7625118558134815262
 Rigidbody2D:
   serializedVersion: 4

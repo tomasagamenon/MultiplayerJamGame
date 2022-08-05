@@ -6,6 +6,7 @@ public class Debree : MonoBehaviour
 {
     public float speed = 10f;
     public float lifeTime = 5f;
+    public int damage = 5;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -24,7 +25,7 @@ public class Debree : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Golpeo un jugador");
-            //do damage
+            collision.gameObject.GetComponent<Health>().Damage(damage);
             //special animation?
         }
         //break

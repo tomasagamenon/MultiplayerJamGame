@@ -74,7 +74,7 @@ public class LaserPointing : MonoBehaviour
     }
     public void ActivateLaser()
     {
-        animator.SetBool(0, true);
+        animator.SetBool("Active", true);
         laserMedium.SetActive(true);
         laserPoint.SetActive(true);
         //audio loop

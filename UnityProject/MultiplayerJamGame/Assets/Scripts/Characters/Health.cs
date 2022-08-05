@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
+    public int maxHealth = 100;
     private int actualHealth;
 
     private bool invulnerable = false;
@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     private float stunCooldown;
 
     public Image bar;
+    public Transform playerCentre;
 
     private void Awake()
     {
@@ -90,6 +91,8 @@ public class Health : MonoBehaviour
     }
     private void Stun(float time)
     {
+        //hacer que se modifique la toma de inputs para que no se mueva el jugador, no se 
+        // que otra cosa podria hacer
         if(!invulnerable && !stunned)
         {
             stunned = true;
@@ -98,6 +101,7 @@ public class Health : MonoBehaviour
     }
     private void DisableStun()
     {
+        //que se vuelva a habilitar todo
         stunned = false;
     }
     private void Death()

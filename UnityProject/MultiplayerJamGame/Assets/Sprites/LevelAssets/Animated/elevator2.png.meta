@@ -107,12 +107,12 @@ TextureImporter:
       name: elevator2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 16
+        y: 33
         width: 32
-        height: 32
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: elevator2_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 80
+        y: 33
         width: 32
-        height: 32
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: elevator2_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 16
+        y: 1
         width: 32
-        height: 32
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: elevator2_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 80
+        y: 1
         width: 32
-        height: 32
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,90 +183,6 @@ TextureImporter:
       bones: []
       spriteID: a1fa7ac29c86e2b44af38c011c2a4161
       internalID: 370610174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elevator2_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a9754647cc2fcc4bba16aa7a65c24b3
-      internalID: -1466655045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elevator2_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af76c7a0af24284e81960b0f907c22b
-      internalID: -317625300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elevator2_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c14a3b6bcc9caa042b8dfb9e3f5f7bc6
-      internalID: 521735577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elevator2_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bbcae5dd20b5fc45a4db096a7330fcd
-      internalID: -1730879428
       vertices: []
       indices: 
       edges: []
@@ -283,11 +199,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       elevator2_0: -2079882461
-      elevator2_4: -1466655045
-      elevator2_5: -317625300
       elevator2_3: 370610174
-      elevator2_6: 521735577
-      elevator2_7: -1730879428
       elevator2_2: -751648809
       elevator2_1: 1713695962
   spritePackingTag: 
