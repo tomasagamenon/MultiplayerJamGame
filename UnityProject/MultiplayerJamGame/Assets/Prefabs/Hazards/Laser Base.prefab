@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushOffset: {x: 0, y: 0}
   knockback: 15
-  damage: 10
+  damage: 1
   invulTime: 1
   stunTime: 0.5
 --- !u!1 &2121934039685040171
@@ -177,7 +177,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121934039685040171}
-  m_LocalRotation: {x: -0, y: -0, z: -0.00000008940696, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.78, y: 4.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

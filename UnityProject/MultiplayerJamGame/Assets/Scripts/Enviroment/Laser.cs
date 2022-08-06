@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     public Vector2 pushOffset;
     public float knockback = 15f;
-    public int damage = 10;
+    public int damage = 1;
     public float invulTime = 1f;
     public float stunTime = 0.5f;
 

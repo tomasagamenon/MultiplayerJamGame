@@ -36,10 +36,6 @@ public class GnomeController : MonoBehaviour, ICharacters
                 animator.SetTrigger("Jumping");
                 animator.SetBool("Falling", false);
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-
-            }
         }
     }
     private void FixedUpdate()

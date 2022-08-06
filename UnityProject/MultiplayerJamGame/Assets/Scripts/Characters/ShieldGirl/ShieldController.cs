@@ -52,7 +52,6 @@ public class ShieldController : MonoBehaviour, ICharacters
                 shield = false;
                 animator.SetBool("Shield", shield);
             }
-
         }
     }
     private void FixedUpdate()

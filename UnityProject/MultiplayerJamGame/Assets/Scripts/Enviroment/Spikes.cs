@@ -6,7 +6,7 @@ public class Spikes : MonoBehaviour
 {
     public Vector2 pushOffset;
     public float knockback = 10f;
-    public int damage = 10;
+    public int damage = 1;
     public float invulTime = 1f;
 
     private void OnCollisionEnter2D(Collision2D collision)
