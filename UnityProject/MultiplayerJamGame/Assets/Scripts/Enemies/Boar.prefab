@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5023098218098680387}
   - component: {fileID: 5023098218098680386}
   - component: {fileID: 5023098218098680385}
-  - component: {fileID: 5023098218098680384}
-  - component: {fileID: 5023098218098680391}
   - component: {fileID: 5023098218098680397}
   - component: {fileID: 5023098218098680396}
   m_Layer: 0
@@ -109,35 +107,6 @@ MonoBehaviour:
   distanceOfHerd: 0
   herd: []
   maxTimeWalking: 1.68
---- !u!114 &5023098218098680384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5023098218098680390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c2589fc7263f7458777cdee765c21d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalLife: 100
---- !u!114 &5023098218098680391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5023098218098680390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8659cc5dafcefca41987af37f8fd9207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementSmoothing: 0.05
-  walkModifier: 10
-  attackMultiplierSpeed: 1
-  distanceToAttack: 1
 --- !u!50 &5023098218098680397
 Rigidbody2D:
   serializedVersion: 4

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHerd : MonoBehaviour
 {
-    private List<EnemyBoar> _herd;
+    private List<EnemyBoar> _herd = new List<EnemyBoar>();
     public EnemyBoar enemyBoarPrefab;
     public int maxBoarsInHerd;
     public int minBoarsInHerd;
@@ -14,8 +14,9 @@ public class EnemyHerd : MonoBehaviour
     {
         for (int i = Random.Range(minBoarsInHerd, maxBoarsInHerd); i <= _herd.Count;)
         {
-            EnemyBoar newBoar = Instantiate(enemyBoarPrefab, transform);
-            _herd.Add(newBoar);
+            Debug.Log(i);
+            GameObject newBoar = Instantiate(enemyBoarPrefab.gameObject, transform);
+            _herd.Add(newBoar.GetComponent<EnemyBoar>());
         }
         foreach (EnemyBoar boar in _herd)
         {
@@ -46,6 +47,8 @@ public class EnemyHerd : MonoBehaviour
 
     public Vector3 FindCenterOfTransforms(List<Transform> transforms)
     {
+        if (_herd.Count <= 0)
+            return transform.position;
         var bound = new Bounds(transforms[0].position, Vector3.zero);
         for (int i = 1; i < transforms.Count; i++)
         {
