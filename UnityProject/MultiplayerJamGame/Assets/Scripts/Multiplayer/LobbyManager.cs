@@ -132,6 +132,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClick_PlayButton()
     {
+        PlayerItem typePlayer = null;
+        foreach (PlayerItem item in playerItemsList)
+        {
+            if (typePlayer == null)
+                typePlayer = item;
+            else if (item.playerAvatar == typePlayer.playerAvatar)
+            {
+                int rNumber = Random.Range(0, 1);
+                item.ChangeAvatar(rNumber);
+                typePlayer.ChangeAvatar(1 - rNumber);
+            }
+        }
         PhotonNetwork.LoadLevel("Level 1");
     }
 }

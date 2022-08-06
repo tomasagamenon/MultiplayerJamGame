@@ -76,4 +76,9 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         else 
             playerProperties["playerAvatar"] = 0;
     }
+
+    public void ChangeAvatar(int number)
+    {
+        playerProperties["playerAvatar"] = number;
+    }
 }
