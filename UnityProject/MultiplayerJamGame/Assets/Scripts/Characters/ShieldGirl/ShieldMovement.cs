@@ -44,16 +44,16 @@ public class ShieldMovement : MonoBehaviour
         yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
         //animator.SetInteger("XDir", xDir);
         //animator.SetInteger("YDir", yDir);
-        if (moved)
-        {
-            _cooldown -= Time.deltaTime;
-            if (_cooldown < 0)
-            {
-                moved = false;
-                _cooldown = cooldown;
-            }
-        }
-        else if(shieldActive)
+        //if (moved)
+        //{
+        //    _cooldown -= Time.deltaTime;
+        //    if (_cooldown < 0)
+        //    {
+        //        moved = false;
+        //        _cooldown = cooldown;
+        //    }
+        //}
+        if(shieldActive)
         {
             if (xDir == 1 && yDir == 1)
             {
@@ -122,5 +122,10 @@ public class ShieldMovement : MonoBehaviour
             animatorState = AnimatorState.right;
         }
         //code for shield activation/deactivation here
+    }
+    public void TurnOffShield()
+    {
+        shield.gameObject.SetActive(false);
+        shieldActive = false;
     }
 }

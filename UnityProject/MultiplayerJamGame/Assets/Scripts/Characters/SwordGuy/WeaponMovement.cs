@@ -17,9 +17,6 @@ public class WeaponMovement : MonoBehaviour
     [SerializeField] private Transform upRightPos;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            ToggleWeapon();
-
         xDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Horizontal"));
         yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
         
@@ -51,5 +48,10 @@ public class WeaponMovement : MonoBehaviour
     {
         weaponActive = !weaponActive;
         shootingPoint.gameObject.SetActive(!shootingPoint.gameObject.activeSelf);
+    }
+    public void TurnOffWeapon()
+    {
+        weaponActive = false;
+        shootingPoint.gameObject.SetActive(false);
     }
 }

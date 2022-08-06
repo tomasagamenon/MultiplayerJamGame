@@ -11,7 +11,20 @@ public class ReviveStation : MonoBehaviour
     private float gnomeCooldown = 0f;
     public LayerMask playersLayers;
     private bool revived = false;
+    public int orcFirstRevive = 7;
+    public int orcSecondRevive = 4;
+    public int gnomeFirstRevive = 3;
+    public int gnomeSecondRevive = 2;
+    public Transform respawn;
 
+    private GameObject gnome;
+    private GameObject orc;
+
+    private void Awake()
+    {
+        gnome = GameObject.Find("GnomeCharacter");
+        orc = GameObject.Find("OrcCharacter");
+    }
     private void Update()
     {
         if (!revived)
@@ -21,28 +34,46 @@ public class ReviveStation : MonoBehaviour
     }
     private void CheckPlayers()
     {
-        bool orc = false;
-        bool gnome = false;
-        Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, healingRadius, playersLayers);
-        foreach (Collider2D pj in players)
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)gnome.transform.position) <= healingRadius)
         {
-            if(pj.gameObject.layer == 9 && !orc)
+            if(Time.time >= gnomeCooldown)
             {
-                if(Time.time >= orcCooldown)
-                {
-                    pj.GetComponent<Health>().Heal(1);
-                    orcCooldown = Time.time + orcHealingSpeed;
-                }
-                orc = true;
-            }else if(pj.gameObject.layer == 8 && !gnome)
-            {
-                if(Time.time >= gnomeCooldown)
-                {
-                    pj.GetComponent<Health>().Heal(1);
-                    gnomeCooldown = Time.time + gnomeHealingSpeed;
-                }
-                gnome = true;
+                gnome.GetComponent<Health>().Heal(1);
+                gnomeCooldown = Time.time + gnomeHealingSpeed;
             }
+        }
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)orc.transform.position) <= healingRadius)
+        {
+            if (Time.time >= orcCooldown)
+            {
+                orc.GetComponent<Health>().Heal(1);
+                orcCooldown = Time.time + orcHealingSpeed;
+            }
+        }
+    }
+    public void ReviveOrc()
+    {
+        orc.transform.position = respawn.position;
+        if (!revived)
+        {
+            orc.GetComponent<Health>().Revive(orcFirstRevive);
+            revived = true;
+        }
+        else
+        {
+            orc.GetComponent<Health>().Revive(orcSecondRevive);
+        }
+    }
+    public void ReviveGnome()
+    {
+        gnome.transform.position = respawn.position;
+        if (!revived)
+        {
+            gnome.GetComponent<Health>().Revive(gnomeFirstRevive);
+        }
+        else
+        {
+            gnome.GetComponent<Health>().Revive(gnomeSecondRevive);
         }
     }
     private void OnDrawGizmos()

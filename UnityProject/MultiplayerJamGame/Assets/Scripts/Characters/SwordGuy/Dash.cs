@@ -26,42 +26,42 @@ public class Dash : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if(doubleTapTime > Time.time && lastKey == KeyCode.A && stamina.EnoughStamina(staminaCost))
-            {
-                StartCoroutine(MakeDash(-1f));
-                stamina.SpendStamina(staminaCost);
-            }
-            else
-            {
-                doubleTapTime = Time.time + doubleTapMargin;
-            }
-            lastKey = KeyCode.A;
-        }
-        else if(Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
-        {
-            StartCoroutine(MakeDash(-1f));
-            stamina.SpendStamina(staminaCost);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (doubleTapTime > Time.time && lastKey == KeyCode.D && stamina.EnoughStamina(staminaCost))
-            {
-                StartCoroutine(MakeDash(1f));
-                stamina.SpendStamina(staminaCost);
-            }
-            else
-            {
-                doubleTapTime = Time.time + doubleTapMargin;
-            }
-            lastKey = KeyCode.D;
-        }
-        else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
-        {
-            StartCoroutine(MakeDash(1f));
-            stamina.SpendStamina(staminaCost);
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    if(doubleTapTime > Time.time && lastKey == KeyCode.A && stamina.EnoughStamina(staminaCost))
+        //    {
+        //        StartCoroutine(MakeDash(-1f));
+        //        stamina.SpendStamina(staminaCost);
+        //    }
+        //    else
+        //    {
+        //        doubleTapTime = Time.time + doubleTapMargin;
+        //    }
+        //    lastKey = KeyCode.A;
+        //}
+        //else if(Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
+        //{
+        //    StartCoroutine(MakeDash(-1f));
+        //    stamina.SpendStamina(staminaCost);
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    if (doubleTapTime > Time.time && lastKey == KeyCode.D && stamina.EnoughStamina(staminaCost))
+        //    {
+        //        StartCoroutine(MakeDash(1f));
+        //        stamina.SpendStamina(staminaCost);
+        //    }
+        //    else
+        //    {
+        //        doubleTapTime = Time.time + doubleTapMargin;
+        //    }
+        //    lastKey = KeyCode.D;
+        //}
+        //else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
+        //{
+        //    StartCoroutine(MakeDash(1f));
+        //    stamina.SpendStamina(staminaCost);
+        //}
     }
     IEnumerator MakeDash(float direction)
     {
@@ -76,5 +76,9 @@ public class Dash : MonoBehaviour
         isDashing = false;
         rb.gravityScale = gravity;
         GetComponent<Animator>().SetBool("Rolling", false);
+    }
+    public void DoDash(float direction)
+    {
+        StartCoroutine(MakeDash(direction));
     }
 }

@@ -14,19 +14,23 @@ public class SwordAttack : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= attackCooldown)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Attack();
-                attackCooldown = Time.time + 1f / attackRate;
-            }
-        }
+        //if (Time.time >= attackCooldown)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.F))
+        //    {
+        //        Attack();
+        //        attackCooldown = Time.time + 1f / attackRate;
+        //    }
+        //}
     }
-    private void Attack()
+    public void Attack()
     {
-        GetComponent<Animator>().SetTrigger("Attacking");
-        DoDamage();
+        if(Time.time >= attackCooldown)
+        {
+            GetComponent<Animator>().SetTrigger("Attacking");
+            DoDamage();
+            attackCooldown = Time.time + 1f / attackRate;
+        }
     }
     //later call this at the right time in the animation
     public void DoDamage()

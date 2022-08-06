@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ShieldController : MonoBehaviour, ICharacters
+public class OrcController : MonoBehaviour, ICharacters
 {
     public float speed = 40f;
     private CharacterMovement characterMov;
@@ -14,6 +14,8 @@ public class ShieldController : MonoBehaviour, ICharacters
     private bool jump = false;
     private bool shield = false;
     private bool _stunned = false;
+
+    private bool dead = false;
 
     PhotonView view;
 
@@ -26,7 +28,7 @@ public class ShieldController : MonoBehaviour, ICharacters
     }
     void Update()
     {
-        if (view.IsMine)
+        if (view.IsMine && !dead)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -65,5 +67,15 @@ public class ShieldController : MonoBehaviour, ICharacters
     public void Stunned(bool stun)
     {
         _stunned = stun;
+    }
+    public void DeathDisable()
+    {
+        dead = true;
+        shieldMov.TurnOffShield();
+    }
+    public void ReviveEnable()
+    {
+        dead = false;
+        shieldMov.ToggleShield();
     }
 }

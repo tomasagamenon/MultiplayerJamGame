@@ -23,29 +23,33 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
             ToggleWeapon();
-        if(Time.time >= fireCooldown && isAvaiable)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Fire();
-                fireCooldown = Time.time + 1f / fireRate;
-            }
-        }
+        //if(Time.time >= fireCooldown && isAvaiable)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.F))
+        //    {
+        //        Fire();
+        //        fireCooldown = Time.time + 1f / fireRate;
+        //    }
+        //}
     }
     public void Fire()
     {
-        if(actualAmmo > 0)
+        if(Time.time >= fireCooldown && isAvaiable)
         {
-            Debug.Log("Disparaste");
-            Instantiate(bulletPref, shootingPoint.position, shootingPoint.rotation);
-            actualAmmo--;
-            AmmoUpdate();
-            //Sound
-        }
-        else
-        {
-            Debug.Log("No ammo");
-            //no ammo!
+            if(actualAmmo > 0)
+            {
+                Debug.Log("Disparaste");
+                Instantiate(bulletPref, shootingPoint.position, shootingPoint.rotation);
+                actualAmmo--;
+                AmmoUpdate();
+                fireCooldown = Time.time + 1f / fireRate;
+                //Sound
+            }
+            else
+            {
+                Debug.Log("No ammo");
+                //no ammo!
+            }
         }
     }
     /*

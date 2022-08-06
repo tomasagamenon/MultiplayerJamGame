@@ -17,9 +17,15 @@ public class Health : MonoBehaviour
 
     public Image bar;
     public Transform playerCentre;
+    private Animator animator;
+    private CapsuleCollider2D capsule;
+    private BoxCollider2D box;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+        box = GetComponent<BoxCollider2D>();
+        capsule = GetComponent<CapsuleCollider2D>();
         controller = GetComponent<ICharacters>();
         actualHealth = maxHealth;
     }
@@ -115,7 +121,20 @@ public class Health : MonoBehaviour
     }
     private void Death()
     {
+        animator.SetBool("Dead", true);
+        controller.DeathDisable();
+        capsule.enabled = false;
+        box.enabled = false;
         //animation
         //sound?
+    }
+    public void Revive(int life)
+    {
+        animator.SetBool("Dead", false);
+        controller.ReviveEnable();
+        Heal(life);
+
+        capsule.enabled = true;
+        box.enabled = true;
     }
 }
