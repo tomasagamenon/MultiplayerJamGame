@@ -31,34 +31,35 @@ public class GnomeController : MonoBehaviour, ICharacters
         attack = GetComponent<SwordAttack>();
         stamina = GetComponent<Stamina>();
         weaponMov = GetComponent<WeaponMovement>();
+        weapon = GetComponent<Weapon>();
         view = GetComponent<PhotonView>();
     }
     void Update()
     {
         if (view.IsMine && !dead)
         {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+            horizontalMove = Input.GetAxisRaw("GnomeHorizontal") * speed;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("GnomeJump"))
             {
                 jump = true;
                 animator.SetTrigger("Jumping");
                 animator.SetBool("Falling", false);
             }
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetButtonDown("Attack"))
             {
                 attack.Attack();
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetButtonDown("Shoot"))
             {
                 weapon.Fire();
             }
-            if(Input.GetAxis("Horizontal") != 0 && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(dash.staminaCost))
+            if(Input.GetAxis("GnomeHorizontal") != 0 && Input.GetButtonDown("Dash") && stamina.EnoughStamina(dash.staminaCost))
             {
                 dash.DoDash(horizontalMove);
                 stamina.SpendStamina(dash.staminaCost);
             }
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetButtonDown("ToggleWeapon"))
                 weaponMov.ToggleWeapon();
         }
     }

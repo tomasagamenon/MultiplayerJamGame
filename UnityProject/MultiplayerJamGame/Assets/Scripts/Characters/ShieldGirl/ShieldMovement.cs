@@ -12,9 +12,9 @@ public class ShieldMovement : MonoBehaviour
     public enum AnimatorState { left, diagonalLeft, up, diagonalRight, right }
     private AnimatorState animatorState = AnimatorState.right;
 
-    private float cooldown = 0.15f;
-    private float _cooldown;
-    private bool moved = false;
+    //private float cooldown = 0.15f;
+    //private float _cooldown;
+    //private bool moved = false;
 
     private int xDir;
     private int yDir;
@@ -36,23 +36,13 @@ public class ShieldMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         characterMov = GetComponent<CharacterMovement>();
-        _cooldown = cooldown;
+        //_cooldown = cooldown;
     }
     private void Update()
     {
-        xDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Horizontal"));
-        yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
-        //animator.SetInteger("XDir", xDir);
-        //animator.SetInteger("YDir", yDir);
-        //if (moved)
-        //{
-        //    _cooldown -= Time.deltaTime;
-        //    if (_cooldown < 0)
-        //    {
-        //        moved = false;
-        //        _cooldown = cooldown;
-        //    }
-        //}
+        xDir = Mathf.RoundToInt(Input.GetAxisRaw("ShieldHorizontal"));
+        yDir = Mathf.RoundToInt(Input.GetAxisRaw("ShieldVertical"));
+        
         if(shieldActive)
         {
             if (xDir == 1 && yDir == 1)
@@ -102,7 +92,7 @@ public class ShieldMovement : MonoBehaviour
                 animatorState = AnimatorState.up;
                 //moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Push"))
             {
                 Debug.Log("Tocaste para pushear");
                 shield.GetComponent<Shield>().Push();

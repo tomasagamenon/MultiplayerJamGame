@@ -34,7 +34,7 @@ public class ReviveStation : MonoBehaviour
     }
     private void CheckPlayers()
     {
-        if(Vector2.Distance((Vector2)transform.position, (Vector2)gnome.transform.position) <= healingRadius)
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)gnome.transform.position) <= healingRadius && gnome.activeInHierarchy)
         {
             if(Time.time >= gnomeCooldown)
             {
@@ -42,7 +42,7 @@ public class ReviveStation : MonoBehaviour
                 gnomeCooldown = Time.time + gnomeHealingSpeed;
             }
         }
-        if(Vector2.Distance((Vector2)transform.position, (Vector2)orc.transform.position) <= healingRadius)
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)orc.transform.position) <= healingRadius && orc.activeInHierarchy)
         {
             if (Time.time >= orcCooldown)
             {

@@ -41,7 +41,7 @@ public class EnemyBoar : EnemyMove
             }
             else _currentTimeWalking += Time.deltaTime;
             Move(move, 1);
-            foreach(CharacterController player in FindObjectsOfType<CharacterController>())
+            foreach(Health player in FindObjectsOfType<Health>())
             {
                 if (distanceToAttack < Vector2.Distance(transform.position, player.transform.position))
                     foreach (EnemyBoar boar in herd)

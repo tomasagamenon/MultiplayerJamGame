@@ -17,8 +17,8 @@ public class WeaponMovement : MonoBehaviour
     [SerializeField] private Transform upRightPos;
     void Update()
     {
-        xDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Horizontal"));
-        yDir = Mathf.RoundToInt(Input.GetAxisRaw("Debug Vertical"));
+        xDir = Mathf.RoundToInt(Input.GetAxisRaw("WeaponHorizontal"));
+        yDir = Mathf.RoundToInt(Input.GetAxisRaw("WeaponVertical"));
         
         if (weaponActive)
         {

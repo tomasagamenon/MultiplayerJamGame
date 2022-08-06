@@ -1,13 +1,14 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
     public GameObject bulletPref;
     public Transform shootingPoint;
-    public TextMeshProUGUI ammoText;
+    public Image ammoBar;
     public int damage;
     public int maxAmmo = 50;
+    public int initialAmmo = 10;
     private int actualAmmo = 0;
     public float fireRate = 4f;
     private float fireCooldown = 0f;
@@ -17,6 +18,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         shootingPoint.gameObject.SetActive(isAvaiable);
+        actualAmmo = initialAmmo;
         AmmoUpdate();
     }
     void Update()
@@ -92,6 +94,6 @@ public class Weapon : MonoBehaviour
     }
     private void AmmoUpdate()
     {
-        ammoText.text = actualAmmo.ToString();
+        ammoBar.fillAmount = (float)actualAmmo / maxAmmo;
     }
 }

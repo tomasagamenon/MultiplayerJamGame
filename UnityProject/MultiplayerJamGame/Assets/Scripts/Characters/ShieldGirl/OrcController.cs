@@ -30,15 +30,15 @@ public class OrcController : MonoBehaviour, ICharacters
     {
         if (view.IsMine && !dead)
         {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+            horizontalMove = Input.GetAxisRaw("OrcHorizontal") * speed;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("OrcJump"))
             {
                 jump = true;
                 animator.SetTrigger("Jumping");
                 animator.SetBool("Falling", false);
             }
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetButton("ShieldHorizontal") || Input.GetAxisRaw("ShieldVertical") > 0)
             {
                 if (shield)
                     return;

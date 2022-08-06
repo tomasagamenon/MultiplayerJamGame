@@ -13,7 +13,7 @@ public class EnemyBeholder : EnemyMove
 
     void Update()
     {
-        foreach (CharacterController player in FindObjectsOfType<CharacterController>())
+        foreach (Health player in FindObjectsOfType<Health>())
         {
             if (distanceToAttack < Vector2.Distance(transform.position, player.transform.position))
             {
