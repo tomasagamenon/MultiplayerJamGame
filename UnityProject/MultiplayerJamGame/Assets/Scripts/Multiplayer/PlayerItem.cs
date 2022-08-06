@@ -20,6 +20,11 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public Sprite[] avatars;
 
     Player player;
+    private void Start()
+    {
+        playerProperties["playerAvatar"] = 0;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+    }
 
     public void SetPlayerInfo(Player _player)
     {

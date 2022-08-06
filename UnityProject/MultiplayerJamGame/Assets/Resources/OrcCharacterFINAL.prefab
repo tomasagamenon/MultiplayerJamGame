@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 8351489375954788842}
   - component: {fileID: 1052101164249287695}
   - component: {fileID: -3467179053920899423}
+  - component: {fileID: 7721642265693382402}
   m_Layer: 9
   m_Name: OrcCharacterFINAL
   m_TagString: Player
@@ -280,6 +281,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1052101164249287695}
   - {fileID: -3467179053920899423}
+  - {fileID: 7721642265693382402}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -410,6 +412,18 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &7721642265693382402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971434313359785628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7ae1d9062475f4583338ccee80845e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5971434314268433889
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6812829945312991360
 Transform:
   m_ObjectHideFlags: 0

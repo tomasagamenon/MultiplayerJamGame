@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 11212529527849909}
   - component: {fileID: 5822159251187578737}
   - component: {fileID: 5874722553938172395}
+  - component: {fileID: 923340093476047707}
   m_Layer: 8
   m_Name: GnomeCharacterFINAL
   m_TagString: Player
@@ -79,7 +80,7 @@ Transform:
   - {fileID: 1259865614936448512}
   - {fileID: 1259865616001658962}
   - {fileID: 3781032826607314080}
-  - {fileID: 1610880246522678269}
+  - {fileID: 6238178048317126756}
   - {fileID: 3781032826898541304}
   - {fileID: 2452015502998478920}
   m_Father: {fileID: 0}
@@ -270,6 +271,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5822159251187578737}
   - {fileID: 5874722553938172395}
+  - {fileID: 923340093476047707}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -460,6 +462,18 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &923340093476047707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259865615950576321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7ae1d9062475f4583338ccee80845e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259865615977112031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1467,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4749637069960548962
+--- !u!1 &7652906690967533673
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1461,39 +1475,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1610880246522678269}
-  - component: {fileID: 2612011427494251806}
-  - component: {fileID: 3803980587316680643}
-  - component: {fileID: 4749637069960548963}
+  - component: {fileID: 6238178048317126756}
+  - component: {fileID: 8745529396393473236}
+  - component: {fileID: 3583918398951336768}
   m_Layer: 0
   m_Name: GnomeCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1610880246522678269
+  m_IsActive: 0
+--- !u!4 &6238178048317126756
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4749637069960548962}
+  m_GameObject: {fileID: 7652906690967533673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: -10}
+  m_LocalPosition: {x: 7.7700005, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1259865615950576312}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &2612011427494251806
+--- !u!20 &8745529396393473236
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4749637069960548962}
+  m_GameObject: {fileID: 7652906690967533673}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -1506,7 +1519,7 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
     width: 0.5
     height: 1
@@ -1530,25 +1543,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3803980587316680643
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4749637069960548962}
-  m_Enabled: 1
---- !u!114 &4749637069960548963
+--- !u!114 &3583918398951336768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4749637069960548962}
+  m_GameObject: {fileID: 7652906690967533673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29ace11ec00a589409ad88dd9692977d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1259865615950576312}
+  t: {fileID: 0}
   verticalOffset: 1
