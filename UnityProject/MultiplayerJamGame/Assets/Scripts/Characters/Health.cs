@@ -13,11 +13,14 @@ public class Health : MonoBehaviour
     private bool stunned = false;
     private float stunCooldown;
 
+    private ICharacters controller;
+
     public Image bar;
     public Transform playerCentre;
 
     private void Awake()
     {
+        controller = GetComponent<ICharacters>();
         actualHealth = maxHealth;
     }
     private void Update()
@@ -97,12 +100,14 @@ public class Health : MonoBehaviour
         {
             stunned = true;
             stunCooldown = Time.time + time;
+            controller.Stunned(stunned);
         }
     }
     private void DisableStun()
     {
         //que se vuelva a habilitar todo
         stunned = false;
+        controller.Stunned(stunned);
     }
     private void Death()
     {

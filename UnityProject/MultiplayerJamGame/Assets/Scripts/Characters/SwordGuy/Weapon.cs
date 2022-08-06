@@ -7,16 +7,12 @@ public class Weapon : MonoBehaviour
     public Transform shootingPoint;
     public TextMeshProUGUI ammoText;
     public int damage;
-    public int maxClip = 10;
-    private int actualClip = 0;
     public int maxAmmo = 50;
     private int actualAmmo = 0;
     public float fireRate = 4f;
     private float fireCooldown = 0f;
     public bool isAvaiable = false;
     public bool isPicked = false;
-
-    private bool isReloading = false;
 
     private void Awake()
     {
@@ -27,33 +23,24 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
             ToggleWeapon();
-        if(Time.time >= fireCooldown && !isReloading && isAvaiable)
+        if(Time.time >= fireCooldown && isAvaiable)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Fire();
                 fireCooldown = Time.time + 1f / fireRate;
             }
-            else if (Input.GetKeyDown(KeyCode.R) && actualAmmo > 0)
-            {
-                ReloadClip();
-            }
         }
     }
     public void Fire()
     {
-        if(actualClip > 0)
+        if(actualAmmo > 0)
         {
             Debug.Log("Disparaste");
             Instantiate(bulletPref, shootingPoint.position, shootingPoint.rotation);
-            actualClip--;
+            actualAmmo--;
             AmmoUpdate();
             //Sound
-        }
-        else if(actualClip == 0 && actualAmmo > 0)
-        {
-            Debug.Log("Recargaste");
-            ReloadClip();
         }
         else
         {
@@ -61,6 +48,7 @@ public class Weapon : MonoBehaviour
             //no ammo!
         }
     }
+    /*
     public void ReloadClip()
     {
         Debug.Log("Empezaste recarga");
@@ -81,7 +69,7 @@ public class Weapon : MonoBehaviour
         AmmoUpdate();
         isReloading = false;
         //maybe a sound
-    }
+    }*/
     public void ToggleWeapon()
     {
         isAvaiable = !isAvaiable;
@@ -100,6 +88,6 @@ public class Weapon : MonoBehaviour
     }
     private void AmmoUpdate()
     {
-        ammoText.text = actualClip.ToString() + "/" + actualAmmo.ToString();
+        ammoText.text = actualAmmo.ToString();
     }
 }

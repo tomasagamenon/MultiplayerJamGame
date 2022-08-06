@@ -10,7 +10,6 @@ public class Shield : MonoBehaviour
     public float pushKnockback = 15f;
     public float pushUpwardEffect = 2.0f;
     public float pushCost = 15f;
-    public Transform pushPointA, pushPointB;
     public Collider2D pushCollider;
     public LayerMask pushLayers;
     public Transform player;
@@ -23,7 +22,10 @@ public class Shield : MonoBehaviour
     {
         if (stamina.EnoughStamina(pushCost))
         {
-            Collider2D[] colliders = Physics2D.OverlapAreaAll(pushPointA.position, pushPointB.position, pushLayers);
+            List<Collider2D> colliders = new List<Collider2D>();
+            ContactFilter2D filter = new ContactFilter2D().NoFilter();
+            filter.SetLayerMask(pushLayers);
+            Physics2D.OverlapCollider(pushCollider, filter, colliders);
             foreach (Collider2D collider2D in colliders)
             {
                 if (collider2D.CompareTag("Player") || collider2D.CompareTag("Enemy"))
@@ -34,6 +36,10 @@ public class Shield : MonoBehaviour
                         dir = dir.normalized;
                         collider2D.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushKnockback, ForceMode2D.Impulse);
                     }
+                }
+                if (collider2D.CompareTag("Lever"))
+                {
+                    collider2D.GetComponent<Lever>().InteractLever();
                 }
             }
             stamina.SpendStamina(pushCost);
@@ -49,14 +55,5 @@ public class Shield : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * shieldKnockback, ForceMode2D.Impulse);
             stamina.SpendStamina(shieldCost);
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(pushPointA.position, pushPointB.position);
-        Gizmos.DrawLine(pushPointA.position, new Vector3(pushPointB.position.x, pushPointA.position.y));
-        Gizmos.DrawLine(pushPointA.position, new Vector3(pushPointA.position.x, pushPointB.position.y));
-        Gizmos.DrawLine(pushPointB.position, new Vector3(pushPointB.position.x, pushPointA.position.y));
-        Gizmos.DrawLine(pushPointB.position, new Vector3(pushPointA.position.x, pushPointB.position.y));
     }
 }

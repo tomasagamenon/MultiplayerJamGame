@@ -33,10 +33,16 @@ public class SwordAttack : MonoBehaviour
     {
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in colliders2D)
+        foreach (Collider2D impact in colliders2D)
         {
-            Debug.Log("You hit " + enemy.name);
-            enemy.GetComponent<EnemyLife>().TakeDamage(attackDamage);
+            if (impact.CompareTag("Enemy"))
+            {
+                Debug.Log("You hit " + impact.name);
+                impact.GetComponent<EnemyLife>().TakeDamage(attackDamage);
+            } else if (impact.CompareTag("Lever"))
+            {
+                impact.GetComponent<Lever>().InteractLever();
+            }
         }
     }
     private void OnDrawGizmos()

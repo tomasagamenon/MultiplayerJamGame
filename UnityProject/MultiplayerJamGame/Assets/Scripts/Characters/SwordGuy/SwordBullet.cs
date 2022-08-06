@@ -17,9 +17,12 @@ public class SwordBullet : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyLife>().TakeDamage(damage);
+            Destroy(gameObject);
+        } else if (collision.CompareTag("Lever"))
+        {
+            collision.GetComponent<Lever>().InteractLever();
         }
         Debug.Log("Golpeaste " + collision.name);
         //some exploding animation
-        Destroy(gameObject);
     }
 }

@@ -32,7 +32,7 @@ public class PressureButton : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.CompareTag("Cube"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if(isToggle && isActive)
             {
@@ -46,7 +46,7 @@ public class PressureButton : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ((collision.gameObject.CompareTag("Player") || collision.CompareTag("Cube")) && (!isToggle))
+        if ((collision.gameObject.CompareTag("Player")) && (!isToggle))
         {
             if (isTimed)
             {

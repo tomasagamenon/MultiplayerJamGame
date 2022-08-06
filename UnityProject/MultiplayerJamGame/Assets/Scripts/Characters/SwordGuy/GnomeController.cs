@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class GnomeController : MonoBehaviour
+public class GnomeController : MonoBehaviour, ICharacters
 {
     public float speed = 40f;
     private CharacterMovement characterMov;
@@ -12,7 +12,8 @@ public class GnomeController : MonoBehaviour
 
     private float horizontalMove = 0f;
     private bool jump = false;
-    private bool shield = false;
+    private bool _stunned = false;
+
 
     PhotonView view;
 
@@ -43,10 +44,14 @@ public class GnomeController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (view.IsMine && !dash.isDashing)
+        if (view.IsMine && !dash.isDashing && !_stunned)
         {
-            characterMov.Move(horizontalMove * Time.fixedDeltaTime, false, jump, shield);
+            characterMov.Move(horizontalMove * Time.fixedDeltaTime, false, jump, false);
             jump = false;
         }
+    }
+    public void Stunned(bool stun)
+    {
+        _stunned = stun;
     }
 }

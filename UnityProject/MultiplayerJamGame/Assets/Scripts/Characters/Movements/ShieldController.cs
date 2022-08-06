@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ShieldController : MonoBehaviour
+public class ShieldController : MonoBehaviour, ICharacters
 {
     public float speed = 40f;
     private CharacterMovement characterMov;
@@ -13,6 +13,7 @@ public class ShieldController : MonoBehaviour
     private float horizontalMove = 0f;
     private bool jump = false;
     private bool shield = false;
+    private bool _stunned = false;
 
     PhotonView view;
 
@@ -56,10 +57,14 @@ public class ShieldController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (view.IsMine)
+        if (view.IsMine && !_stunned)
         {
             characterMov.Move(horizontalMove * Time.fixedDeltaTime, false, jump, shield);
             jump = false;
         }
+    }
+    public void Stunned(bool stun)
+    {
+        _stunned = stun;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IActivable
 {
+    public int inputCounter = 1;
     private bool isClosed = true;
     private Animator animator;
 
@@ -13,13 +14,21 @@ public class Door : MonoBehaviour, IActivable
     }
     public void OpenDoor()
     {
-        animator.SetBool("Open", true);
-        //sound?
+        inputCounter--;
+        if(inputCounter <= 0)
+        {
+            animator.SetBool("Open", true);
+            //sound?
+        }
     }
     public void CloseDoor()
     {
-        animator.SetBool("Open", false);
-        //sound?
+        inputCounter++;
+        if(inputCounter > 0)
+        {
+            animator.SetBool("Open", false);
+            //sound?
+        }
     }
     public void ToggleDoor()
     {
