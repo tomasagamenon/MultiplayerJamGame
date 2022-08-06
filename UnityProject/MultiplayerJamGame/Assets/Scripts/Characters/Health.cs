@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 7;
     private int actualHealth;
 
     private bool invulnerable = false;
@@ -75,6 +75,10 @@ public class Health : MonoBehaviour
             Death();
         }
         bar.fillAmount = Mathf.InverseLerp(0, maxHealth, actualHealth);
+    }
+    public void MakeInvulnerable(float time)
+    {
+        Invulnerability(time);
     }
     private void Invulnerability(float time)
     {

@@ -10,8 +10,9 @@ public class Dash : MonoBehaviour
     public float downwardForce = -0.5f;
     public float staminaCost = 15f;
     public bool isDashing = false;
-    public GameObject dashCollider;
-    public Collider2D[] playerColliders;
+    //public GameObject dashCollider;
+    private Health health;
+    //public Collider2D[] playerColliders;
     private float doubleTapTime;
     KeyCode lastKey;
 
@@ -21,6 +22,7 @@ public class Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         stamina = GetComponent<Stamina>();
+        health = GetComponent<Health>();
     }
     private void Update()
     {
@@ -37,6 +39,11 @@ public class Dash : MonoBehaviour
             }
             lastKey = KeyCode.A;
         }
+        else if(Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
+        {
+            StartCoroutine(MakeDash(-1f));
+            stamina.SpendStamina(staminaCost);
+        }
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (doubleTapTime > Time.time && lastKey == KeyCode.D && stamina.EnoughStamina(staminaCost))
@@ -50,22 +57,24 @@ public class Dash : MonoBehaviour
             }
             lastKey = KeyCode.D;
         }
+        else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.LeftShift) && stamina.EnoughStamina(staminaCost))
+        {
+            StartCoroutine(MakeDash(1f));
+            stamina.SpendStamina(staminaCost);
+        }
     }
     IEnumerator MakeDash(float direction)
     {
-        GetComponent<Animator>().SetTrigger("Rollking");
+        GetComponent<Animator>().SetBool("Rolling", true);
+        if(!isDashing)
+            health.MakeInvulnerable(dashTime);
         isDashing = true;
         float gravity = rb.gravityScale;
         rb.gravityScale = 0;
-        dashCollider.SetActive(true);
-        foreach (Collider2D item in playerColliders)
-            item.isTrigger = true;
         rb.AddForce(new Vector2(direction * dashDistance, downwardForce), ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
-        foreach (Collider2D item in playerColliders)
-            item.isTrigger = false;
-        dashCollider.SetActive(false);
         rb.gravityScale = gravity;
+        GetComponent<Animator>().SetBool("Rolling", false);
     }
 }
