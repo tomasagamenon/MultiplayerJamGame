@@ -16,6 +16,7 @@ public class GnomeController : MonoBehaviour, ICharacters
 
     private float horizontalMove = 0f;
     private bool jump = false;
+    private bool activeWeapon = false;
     private bool _stunned = false;
 
     private bool dead = false;
@@ -61,6 +62,23 @@ public class GnomeController : MonoBehaviour, ICharacters
             }
             if (Input.GetButtonDown("ToggleWeapon"))
                 weaponMov.ToggleWeapon();
+            if (Input.GetButton("WeaponHorizontal") || Input.GetButton("WeaponVertical"))
+            {
+                if (activeWeapon)
+                    return;
+                weaponMov.ToggleWeapon();
+                activeWeapon = true;
+                animator.SetBool("Weapon", true);
+                //audio?
+            }
+            else
+            {
+                if (!activeWeapon)
+                    return;
+                weaponMov.ToggleWeapon();
+                activeWeapon = false;
+                animator.SetBool("Weapon", false);
+            }
         }
     }
     private void FixedUpdate()
