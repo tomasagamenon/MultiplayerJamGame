@@ -16,6 +16,6 @@ public class PlayerSpawner : MonoBehaviour
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
         GameObject Player = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
         FindObjectOfType<Camera>().transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -10);
-        FindObjectOfType<Camera>().transform.SetParent(Player.transform);
+        FindObjectOfType<CameraTemp>().t = Player.transform;
     }
 }
