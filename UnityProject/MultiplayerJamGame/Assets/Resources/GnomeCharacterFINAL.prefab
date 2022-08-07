@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  isDead: 0
   bar: {fileID: 3781032826021840470}
   playerCentre: {fileID: 3781032826607314080}
 --- !u!114 &5822159251187578737
@@ -694,6 +695,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  dontDestroyOnLoad: 0
 --- !u!1 &1259865615977112031
 GameObject:
   m_ObjectHideFlags: 0
