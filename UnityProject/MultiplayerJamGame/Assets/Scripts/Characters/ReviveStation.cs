@@ -25,8 +25,8 @@ public class ReviveStation : MonoBehaviour
     }
     private void Start()
     {
-        orc = GameObject.Find(orc.name);
-        gnome = GameObject.Find(gnome.name);
+        orc = FindObjectOfType<OrcController>().gameObject;
+        gnome = FindObjectOfType<GnomeController>().gameObject;
     }
     private void Update()
     {
