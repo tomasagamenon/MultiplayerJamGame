@@ -51,7 +51,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
         {
             if (xDir == 1 && yDir == 1)
             {
-                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upRightPos.transform.position, upRightPos.transform.rotation, shield.gameObject.activeSelf });
+                ShieldOnline(upRightPos.transform.position, upRightPos.transform.rotation, shield.gameObject.activeSelf);
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalRight;
                 else
@@ -60,7 +60,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == -1 && yDir == 1)
             {
-                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upLeftPos.transform.position, upLeftPos.transform.rotation, shield.gameObject.activeSelf });
+                ShieldOnline(upLeftPos.transform.position, upLeftPos.transform.rotation, shield.gameObject.activeSelf);
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalLeft;
                 else
@@ -69,7 +69,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == 1 && yDir == 0)
             {
-                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform.position, rightPos.transform.rotation, shield.gameObject.activeSelf });
+                ShieldOnline(rightPos.transform.position, rightPos.transform.rotation, shield.gameObject.activeSelf);
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.right;
                 else
@@ -78,7 +78,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == -1 && yDir == 0)
             {
-                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { leftPos.transform.position, leftPos.transform.rotation, shield.gameObject.activeSelf });
+                ShieldOnline(leftPos.transform.position, leftPos.transform.rotation, shield.gameObject.activeSelf);
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.left;
                 else
@@ -87,7 +87,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (yDir == 1)
             {
-                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upPos.transform.position, upPos.transform.rotation, shield.gameObject.activeSelf });
+                ShieldOnline(upPos.transform.position, upPos.transform.rotation, shield.gameObject.activeSelf);
                 animatorState = AnimatorState.up;
                 //moved = true;
             }
@@ -101,15 +101,29 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     }
     public void ToggleShield()
     {
-        photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] {shield.transform.position, shield.transform.rotation, !shield.gameObject.activeSelf });
+        ShieldOnline(shield.transform.position, shield.transform.rotation, !shield.gameObject.activeSelf);
         shieldActive = !shieldActive;
         if (shieldActive && firstActive)
         {
             firstActive = false;
-            photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform.position, rightPos.transform.rotation, shield.gameObject.activeSelf });
+            ShieldOnline(rightPos.transform.position, rightPos.transform.rotation, shield.gameObject.activeSelf);
             animatorState = AnimatorState.right;
         }
         //code for shield activation/deactivation here
+    }
+
+    void ShieldOnline(Vector3 transform, Quaternion quaternion, bool active)
+    {
+        if(PhotonNetwork.IsConnected)
+            photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { transform, quaternion, active });
+        else
+        {
+            shield.position = transform;
+            shield.rotation = quaternion;
+
+
+            shield.gameObject.SetActive(active);
+        }
     }
 
     [Photon.Pun.RPC]

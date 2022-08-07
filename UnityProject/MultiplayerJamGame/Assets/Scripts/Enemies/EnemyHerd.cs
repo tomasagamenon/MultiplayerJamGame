@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class EnemyHerd : MonoBehaviour
 {
@@ -12,10 +13,11 @@ public class EnemyHerd : MonoBehaviour
 
     void Start()
     {
-        for (int i = Random.Range(minBoarsInHerd, maxBoarsInHerd); i <= _herd.Count;)
+        Debug.Log("here");
+        for (int i = Random.Range(minBoarsInHerd, maxBoarsInHerd); i >= _herd.Count;)
         {
             Debug.Log(i);
-            GameObject newBoar = Instantiate(enemyBoarPrefab.gameObject, transform);
+            GameObject newBoar = PhotonNetwork.Instantiate(enemyBoarPrefab.name, transform.position, transform.rotation);
             _herd.Add(newBoar.GetComponent<EnemyBoar>());
         }
         foreach (EnemyBoar boar in _herd)

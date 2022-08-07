@@ -51,13 +51,12 @@ MonoBehaviour:
   point2: {fileID: 957355389116949653}
   minRotation: 200
   maxRotation: 340
-  spawnRate: 10
+  spawnRate: 1
   debrisPrefs:
   - {fileID: 734091774099200945, guid: bc283538f1243eb48a3e20915017e6af, type: 3}
   - {fileID: 6994332462244404373, guid: 777601abfa8747b44a91d596073da08c, type: 3}
-  minDebreeSpeed: 2
-  maxDebreeSpeed: 6
-  photonView: {fileID: 0}
+  minDebreeSpeed: 1
+  maxDebreeSpeed: 15
 --- !u!114 &-3385216003522046769
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class DebreeSpawner : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class DebreeSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(Time.time >= spawnCooldown)
+        if(Time.time >= spawnCooldown && PhotonNetwork.IsMasterClient)
         {
             Vector2 position = new Vector2(Random.Range(point1.position.x, point2.position.x), 
                 Mathf.Lerp(point1.position.y, point2.position.y, 0.5f));

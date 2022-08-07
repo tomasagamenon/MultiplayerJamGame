@@ -6,8 +6,10 @@ public class EnemyBeholder : EnemyMove
 {
     public float distanceToSee;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
         attacking = false;
     }
 

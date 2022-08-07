@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;
-    private Rigidbody2D m_Rigidbody2D;
+    public Rigidbody2D m_Rigidbody2D;
     private Vector3 m_Velocity = Vector3.zero;
     protected bool m_FacingRight = true;
     public float walkModifier;
@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     public float distanceToAttack;
     protected bool attacking;
 
-    void Start()
+    protected virtual void Start()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
