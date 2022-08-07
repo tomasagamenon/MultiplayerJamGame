@@ -75,5 +75,17 @@ public class Shield : MonoBehaviour
             audioManager.Play("Block");
             stamina.SpendStamina(shieldCost);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            if (collision.transform.position.y > transform.position.y)
+                collision.transform.SetParent(transform);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
     }
 }
