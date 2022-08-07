@@ -29,6 +29,9 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     [SerializeField] private Transform upRightPos;
 
     private bool firstActive;
+
+    public PhotonView photonView;
+
     private void Awake()
     {
         firstActive = true;
@@ -48,7 +51,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
         {
             if (xDir == 1 && yDir == 1)
             {
-                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upRightPos.transform, shield.gameObject.activeSelf });
+                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upRightPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalRight;
                 else
@@ -57,7 +60,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == -1 && yDir == 1)
             {
-                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upLeftPos.transform, shield.gameObject.activeSelf });
+                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upLeftPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalLeft;
                 else
@@ -66,7 +69,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == 1 && yDir == 0)
             {
-                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
+                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.right;
                 else
@@ -75,7 +78,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (xDir == -1 && yDir == 0)
             {
-                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { leftPos.transform, shield.gameObject.activeSelf });
+                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { leftPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.left;
                 else
@@ -84,7 +87,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
             }
             else if (yDir == 1)
             {
-                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upPos.transform, shield.gameObject.activeSelf });
+                photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upPos.transform, shield.gameObject.activeSelf });
                 animatorState = AnimatorState.up;
                 //moved = true;
             }
@@ -99,12 +102,12 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     public void ToggleShield()
     {
         Debug.Log("a");
-        GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] {shield.transform, !shield.gameObject.activeSelf });
+        photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] {shield.transform, !shield.gameObject.activeSelf });
         shieldActive = !shieldActive;
         if (shieldActive && firstActive)
         {
             firstActive = false;
-            GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
+            photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
             animatorState = AnimatorState.right;
         }
         //code for shield activation/deactivation here
@@ -122,7 +125,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     }
     public void TurnOffShield()
     {
-        GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { shield.transform, false });
+        photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { shield.transform, false });
         shieldActive = false;
     }
 }
