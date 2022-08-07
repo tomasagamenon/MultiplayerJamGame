@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBoarPrefab: {fileID: 8761720067975129644, guid: 5ce928ada177d6d44a3160c1b054f873, type: 3}
-  maxBoarsInHerd: 7
-  minBoarsInHerd: 4
+  maxBoarsInHerd: 8
+  minBoarsInHerd: 5
