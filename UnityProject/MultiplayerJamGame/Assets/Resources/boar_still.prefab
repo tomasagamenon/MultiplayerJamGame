@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovementSmoothing: 0.05
   m_Rigidbody2D: {fileID: -4543569023544433422}
-  walkModifier: 40
-  attackMultiplierSpeed: 50
+  walkModifier: 0.5
+  attackMultiplierSpeed: 1.5
   distanceToAttack: 4
   myHerd: {fileID: 0}
   distanceOfHerd: 8

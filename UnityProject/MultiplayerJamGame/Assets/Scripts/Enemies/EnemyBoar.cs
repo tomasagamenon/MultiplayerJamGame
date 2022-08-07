@@ -41,18 +41,20 @@ public class EnemyBoar : EnemyMove
             }
             else _currentTimeWalking += Time.deltaTime;
             Move(move, 1);
-            foreach(Health player in FindObjectsOfType<Health>())
-            {
-                if (distanceToAttack < Vector2.Distance(transform.position, player.transform.position))
-                    foreach (EnemyBoar boar in herd)
-                        boar.HerdAttack(player.transform);
-            }
+        }
+        foreach (Health player in FindObjectsOfType<Health>())
+        {
+            if (distanceToAttack < Vector2.Distance(transform.position, player.transform.position))
+                foreach (EnemyBoar boar in herd)
+                    boar.HerdAttack(player.transform);
+            else attacking = false;
         }
 
     }
 
     public void HerdAttack(Transform player)
     {
+        Debug.Log("ataco");
         attacking = true;
         Attack(player);
     }
