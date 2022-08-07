@@ -47,6 +47,10 @@ public class SwordAttack : MonoBehaviour
             {
                 impact.GetComponent<Lever>().InteractLever();
             }
+            else if (impact.GetComponent<ReviveStation>())
+            {
+                impact.GetComponent<ReviveStation>().ReviveOrc();
+            }
         }
     }
     private void OnDrawGizmos()

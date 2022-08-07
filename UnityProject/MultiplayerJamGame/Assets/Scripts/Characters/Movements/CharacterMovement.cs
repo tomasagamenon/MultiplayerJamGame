@@ -22,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
 	private int remainingJumps = 1;
 	private Rigidbody2D m_Rigidbody2D;
 	private Animator animator;
+	private AudioManager audioManager;
 	//private SpriteRenderer sprite;
 	[HideInInspector]public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
@@ -39,6 +40,7 @@ public class CharacterMovement : MonoBehaviour
 
 	private void Awake()
 	{
+		audioManager = GetComponent<AudioManager>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		//sprite = GetComponent<SpriteRenderer>();
@@ -161,12 +163,14 @@ public class CharacterMovement : MonoBehaviour
 			m_Grounded = false;
 			remainingJumps = validJumps - 1;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			audioManager.Play("Jump");
 		}
 		else if (jump && remainingJumps > 0)
         {
 			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			remainingJumps -= 1;
+			audioManager.Play("Jump2");
         }
 	}
 
@@ -182,4 +186,31 @@ public class CharacterMovement : MonoBehaviour
 		//theScale.x *= -1;
 		//transform.localScale = theScale;
 	}
+	public void Step()
+    {
+		string audio;
+		int i = Random.Range(1, 5);
+        switch (i)
+        {
+			case 1:
+				audio = "Footstep1";
+				break;
+			case 2:
+				audio = "Footstep2";
+				break;
+			case 3:
+				audio = "Footstep3";
+				break;
+			case 4:
+				audio = "Footstep4";
+				break;
+			case 5:
+				audio = "Footstep5";
+				break;
+			default:
+				audio = "";
+                break;
+        }
+		audioManager.PlayOnce(audio);
+    }
 }

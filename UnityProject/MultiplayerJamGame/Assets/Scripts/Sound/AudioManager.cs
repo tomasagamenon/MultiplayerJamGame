@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.spatialBlend = s.spatialBlend;
             s.source.playOnAwake = s.playOnAwake;
+            s.source.outputAudioMixerGroup = s.audioMixerGroup;
         }
     }
     public void Play(string name)
@@ -31,5 +32,25 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+    public void PlayOnce(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound file called \"" + name + "\" not found");
+            return;
+        }
+        s.source.PlayOneShot(s.clip);
+    }
+    public void StopPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound file called \"" + name + "\" not found");
+            return;
+        }
+        s.source.Stop();
     }
 }

@@ -14,9 +14,15 @@ public class Shield : MonoBehaviour
     public LayerMask pushLayers;
     public Transform player;
     private Stamina stamina;
+    private AudioManager audioManager;
     private void Awake()
     {
         stamina = player.GetComponent<Stamina>();
+        audioManager = GetComponent<AudioManager>();
+    }
+    private void Start()
+    {
+        audioManager.Play("ShieldActive");
     }
     public void Push()
     {
@@ -28,20 +34,33 @@ public class Shield : MonoBehaviour
             Physics2D.OverlapCollider(pushCollider, filter, colliders);
             foreach (Collider2D collider2D in colliders)
             {
-                if (collider2D.CompareTag("Player") || collider2D.CompareTag("Enemy"))
+                if (collider2D.CompareTag("Player"))
                 {
-                    if (stamina.EnoughStamina(pushCost))
-                    {
-                        Vector2 dir = (Vector2)collider2D.transform.position - (Vector2)player.position;
-                        dir = dir.normalized;
-                        collider2D.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushKnockback, ForceMode2D.Impulse);
-                    }
+                    Vector2 dir = (Vector2)collider2D.GetComponent<Health>().playerCentre.position - (Vector2)player.position;
+                    dir = dir.normalized;
+                    collider2D.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushKnockback, ForceMode2D.Impulse);
+                    audioManager.Play("Push");
                 }
-                if (collider2D.CompareTag("Lever"))
+                else if (collider2D.CompareTag("Enemy"))
+                {
+                    Vector2 dir = (Vector2)collider2D.transform.position - (Vector2)player.position;
+                    dir = dir.normalized;
+                    collider2D.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushKnockback, ForceMode2D.Impulse);
+                    audioManager.Play("Push");
+                }
+                else if (collider2D.CompareTag("Lever"))
                 {
                     collider2D.GetComponent<Lever>().InteractLever();
+                    audioManager.Play("Push2");
+                }
+                else if (collider2D.GetComponent<ReviveStation>())
+                {
+                    collider2D.GetComponent<ReviveStation>().ReviveGnome();
+                    audioManager.Play("Push2");
                 }
             }
+            if (colliders.Count == 0)
+                audioManager.Play("Cast");
             stamina.SpendStamina(pushCost);
         }
     }
@@ -53,6 +72,7 @@ public class Shield : MonoBehaviour
                 + new Vector2(0f, shieldUpwardEffect);
             dir = dir.normalized;
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * shieldKnockback, ForceMode2D.Impulse);
+            audioManager.Play("Block");
             stamina.SpendStamina(shieldCost);
         }
     }

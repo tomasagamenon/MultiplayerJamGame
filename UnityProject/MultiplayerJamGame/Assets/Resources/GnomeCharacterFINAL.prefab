@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 11212529527849909}
   - component: {fileID: 5822159251187578737}
   - component: {fileID: 5874722553938172395}
-  - component: {fileID: 923340093476047707}
   m_Layer: 8
   m_Name: GnomeCharacterFINAL
   m_TagString: Player
@@ -271,7 +270,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5822159251187578737}
   - {fileID: 5874722553938172395}
-  - {fileID: 923340093476047707}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -462,18 +460,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &923340093476047707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259865615950576321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7ae1d9062475f4583338ccee80845e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1259865615977112031
 GameObject:
   m_ObjectHideFlags: 0

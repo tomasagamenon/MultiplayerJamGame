@@ -13,16 +13,20 @@ public class Health : MonoBehaviour
     private bool stunned = false;
     private float stunCooldown;
 
+    private bool healing = false;
+
     private ICharacters controller;
 
     public Image bar;
     public Transform playerCentre;
     private Animator animator;
+    private AudioManager audioManager;
     private CapsuleCollider2D capsule;
     private BoxCollider2D box;
 
     private void Awake()
     {
+        audioManager = GetComponent<AudioManager>();
         animator = GetComponent<Animator>();
         box = GetComponent<BoxCollider2D>();
         capsule = GetComponent<CapsuleCollider2D>();
@@ -50,7 +54,21 @@ public class Health : MonoBehaviour
     {
         actualHealth = Mathf.Clamp(actualHealth + heal, 0, maxHealth);
         bar.fillAmount = Mathf.InverseLerp(0, maxHealth, actualHealth);
-        //sound?
+        if(actualHealth <= maxHealth)
+            audioManager.Play("Healing");
+        //if (actualHealth >= maxHealth)
+        //{
+        //    audioManager.StopPlaying("Healing");
+        //    healing = false;
+        //    return;
+        //}
+        //else if (!healing)
+        //{
+        //    audioManager.Play("Healing");
+        //    healing = true;
+        //    return;
+        //}
+        
     }
     #region Damage
 
@@ -72,8 +90,11 @@ public class Health : MonoBehaviour
     #endregion
     private void DoDamage(int damage)
     {
-        if(!invulnerable)
+        if (!invulnerable)
+        {
             actualHealth -= damage;
+            audioManager.Play("Hit");
+        }
         //sound?
         //animation?
         if(actualHealth <= 0)
@@ -122,18 +143,18 @@ public class Health : MonoBehaviour
     private void Death()
     {
         animator.SetBool("Dead", true);
+        audioManager.Play("Death");
         controller.DeathDisable();
         capsule.enabled = false;
         box.enabled = false;
-        //animation
-        //sound?
     }
     public void Revive(int life)
     {
         animator.SetBool("Dead", false);
         controller.ReviveEnable();
         Heal(life);
-
+        audioManager.StopPlaying("Healing");
+        audioManager.Play("Revive");
         capsule.enabled = true;
         box.enabled = true;
     }

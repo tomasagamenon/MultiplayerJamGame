@@ -45,6 +45,7 @@ public class OrcController : MonoBehaviour, ICharacters
                 shieldMov.ToggleShield();
                 shield = true;
                 animator.SetBool("Shield", shield);
+                GetComponent<AudioManager>().Play("Shield");
             }
             else
             {
