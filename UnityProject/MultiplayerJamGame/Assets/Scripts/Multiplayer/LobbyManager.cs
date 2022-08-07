@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -133,13 +134,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void OnClick_PlayButton()
     {
         PlayerItem typePlayer = null;
-        foreach (PlayerItem item in playerItemsList)
+        foreach (PlayerItem item in FindObjectsOfType<PlayerItem>())
         {
             if (typePlayer == null)
+            {
+                Debug.Log("a");
                 typePlayer = item;
-            else if (item.playerAvatar == typePlayer.playerAvatar)
+            }
+            else if (item.character == typePlayer.character)
             {
                 int rNumber = Random.Range(0, 1);
+                Debug.Log("iii");
                 item.ChangeAvatar(rNumber);
                 typePlayer.ChangeAvatar(1 - rNumber);
             }
