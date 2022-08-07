@@ -53,10 +53,13 @@ public class Health : MonoBehaviour
     }
     public void Heal(int heal)
     {
-        actualHealth = Mathf.Clamp(actualHealth + heal, 0, maxHealth);
-        bar.fillAmount = Mathf.InverseLerp(0, maxHealth, actualHealth);
-        if(actualHealth <= maxHealth)
-            audioManager.Play("Healing");
+        if (!isDead)
+        {
+            actualHealth = Mathf.Clamp(actualHealth + heal, 0, maxHealth);
+            bar.fillAmount = Mathf.InverseLerp(0, maxHealth, actualHealth);
+            if(actualHealth <= maxHealth)
+                audioManager.Play("Healing");
+        }
         //if (actualHealth >= maxHealth)
         //{
         //    audioManager.StopPlaying("Healing");
@@ -110,7 +113,7 @@ public class Health : MonoBehaviour
     }
     private void Invulnerability(float time)
     {
-        if (!invulnerable)
+        if (!invulnerable && !isDead)
         {
             Physics2D.IgnoreLayerCollision(gameObject.layer, 6, true);
             Physics2D.IgnoreLayerCollision(gameObject.layer, 10, true);
@@ -147,8 +150,8 @@ public class Health : MonoBehaviour
         animator.SetBool("Dead", true);
         audioManager.Play("Death");
         controller.DeathDisable();
-        capsule.enabled = false;
-        box.enabled = false;
+        //capsule.enabled = false;
+        //box.enabled = false;
     }
     public void Revive(int life)
     {
