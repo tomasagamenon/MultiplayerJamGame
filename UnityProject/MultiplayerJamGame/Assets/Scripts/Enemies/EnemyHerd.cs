@@ -27,7 +27,6 @@ public class EnemyHerd : MonoBehaviour
                 boar.myHerd = this;
             }
         }
-        else gameObject.SetActive(false);
     }
 
     void Update()
