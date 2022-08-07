@@ -14,6 +14,8 @@ public class PlayerSpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[randomNumber];
         Debug.Log((int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]);
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+        GameObject Player = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+        FindObjectOfType<Camera>().transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -10);
+        FindObjectOfType<Camera>().transform.SetParent(Player.transform);
     }
 }
