@@ -53,11 +53,9 @@ public class LaserPointing : MonoBehaviour
             if (scaleY < 0.05)
             {
                 LaserStop();
-                stopped = true;
             }
             else if(stopped)
             {
-                stopped = false;
                 LaserStart();
             }
             laserMedium.transform.position = place;
@@ -70,6 +68,7 @@ public class LaserPointing : MonoBehaviour
     }
     public void LaserStart()
     {
+        stopped = false;
         animator.SetBool("Active", true);
         GetComponent<AudioManager>().Play("Activate");
         //audio
@@ -83,6 +82,7 @@ public class LaserPointing : MonoBehaviour
     }
     public void LaserStop()
     {
+        stopped = true;
         animator.SetBool("Active", false);
         GetComponent<AudioManager>().Play("Deactivate");
         laserPoint.SetActive(false);
