@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementSmoothing: 0.05
+  m_Rigidbody2D: {fileID: 0}
   walkModifier: 1
   attackMultiplierSpeed: 3
   distanceToAttack: 4
