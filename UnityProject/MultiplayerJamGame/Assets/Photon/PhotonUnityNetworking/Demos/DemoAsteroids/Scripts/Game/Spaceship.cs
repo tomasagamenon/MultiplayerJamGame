@@ -130,7 +130,7 @@ namespace Photon.Pun.Demo.Asteroids
 
         #region PUN CALLBACKS
 
-        [PunRPC]
+        [RPC]
         public void DestroySpaceship()
         {
             rigidbody.velocity = Vector3.zero;
@@ -159,7 +159,7 @@ namespace Photon.Pun.Demo.Asteroids
             }
         }
 
-        [PunRPC]
+        [RPC]
         public void Fire(Vector3 position, Quaternion rotation, PhotonMessageInfo info)
         {
             float lag = (float) (PhotonNetwork.Time - info.SentServerTime);
@@ -183,7 +183,7 @@ namespace Photon.Pun.Demo.Asteroids
             //bullet.GetComponent<Bullet>().InitializeBullet(photonView.Owner, baseZ, Mathf.Abs(lag));
         }
 
-        [PunRPC]
+        [RPC]
         public void RespawnSpaceship()
         {
             collider.enabled = true;

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ShieldMovement : MonoBehaviour
+public class ShieldMovement : MonoBehaviourPunCallbacks
 {
     public Transform shield;
 
@@ -47,8 +48,7 @@ public class ShieldMovement : MonoBehaviour
         {
             if (xDir == 1 && yDir == 1)
             {
-                shield.position = upRightPos.position;
-                shield.rotation = upRightPos.rotation;
+                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upRightPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalRight;
                 else
@@ -57,8 +57,7 @@ public class ShieldMovement : MonoBehaviour
             }
             else if (xDir == -1 && yDir == 1)
             {
-                shield.position = upLeftPos.position;
-                shield.rotation = upLeftPos.rotation;
+                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upLeftPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.diagonalLeft;
                 else
@@ -67,8 +66,7 @@ public class ShieldMovement : MonoBehaviour
             }
             else if (xDir == 1 && yDir == 0)
             {
-                shield.position = rightPos.position;
-                shield.rotation = rightPos.rotation;
+                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.right;
                 else
@@ -77,8 +75,7 @@ public class ShieldMovement : MonoBehaviour
             }
             else if (xDir == -1 && yDir == 0)
             {
-                shield.position = leftPos.position;
-                shield.rotation = leftPos.rotation;
+                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { leftPos.transform, shield.gameObject.activeSelf });
                 if (characterMov.m_FacingRight)
                     animatorState = AnimatorState.left;
                 else
@@ -87,8 +84,7 @@ public class ShieldMovement : MonoBehaviour
             }
             else if (yDir == 1)
             {
-                shield.position = upPos.position;
-                shield.rotation = upPos.rotation;
+                GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { upPos.transform, shield.gameObject.activeSelf });
                 animatorState = AnimatorState.up;
                 //moved = true;
             }
@@ -102,20 +98,29 @@ public class ShieldMovement : MonoBehaviour
     }
     public void ToggleShield()
     {
-        shield.gameObject.SetActive(!shield.gameObject.activeSelf);
+        GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] {shield.transform, !shield.gameObject.activeSelf });
         shieldActive = !shieldActive;
         if (shieldActive && firstActive)
         {
             firstActive = false;
-            shield.position = rightPos.position;
-            shield.rotation = rightPos.rotation;
+            GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { rightPos.transform, shield.gameObject.activeSelf });
             animatorState = AnimatorState.right;
         }
         //code for shield activation/deactivation here
     }
+
+    [Photon.Pun.RPC]
+    private void RPC_ToggleShield(Transform transform, bool active)
+    {
+        shield.position = transform.position;
+        shield.rotation = transform.rotation;
+
+
+        shield.gameObject.SetActive(active);
+    }
     public void TurnOffShield()
     {
-        shield.gameObject.SetActive(false);
+        GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] { shield.transform, false });
         shieldActive = false;
     }
 }
