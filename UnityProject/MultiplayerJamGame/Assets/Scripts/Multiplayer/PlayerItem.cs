@@ -20,10 +20,18 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public Sprite[] avatars;
 
     Player player;
+
+    public int character;
+
     private void Start()
     {
         playerProperties["playerAvatar"] = 0;
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+    }
+
+    private void Update()
+    {
+        character = (int)playerProperties["playerAvatar"];
     }
 
     public void SetPlayerInfo(Player _player)
@@ -80,5 +88,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public void ChangeAvatar(int number)
     {
         playerProperties["playerAvatar"] = number;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        Debug.Log((int)playerProperties["playerAvatar"]);
+        Debug.Log((int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]);
     }
 }
