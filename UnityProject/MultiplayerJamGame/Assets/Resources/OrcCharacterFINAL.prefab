@@ -305,6 +305,7 @@ MonoBehaviour:
   upPos: {fileID: 9202173680343842394}
   upLeftPos: {fileID: 9202173682278787609}
   upRightPos: {fileID: 9202173682141889621}
+  photonView: {fileID: 9190314929956967303}
 --- !u!114 &8351489375954788843
 MonoBehaviour:
   m_ObjectHideFlags: 0
