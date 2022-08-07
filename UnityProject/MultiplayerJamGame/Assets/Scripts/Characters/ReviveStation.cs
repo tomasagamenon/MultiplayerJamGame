@@ -22,6 +22,9 @@ public class ReviveStation : MonoBehaviour
 
     private void Awake()
     {
+    }
+    private void Start()
+    {
         orc = GameObject.Find(orc.name);
         gnome = GameObject.Find(gnome.name);
     }

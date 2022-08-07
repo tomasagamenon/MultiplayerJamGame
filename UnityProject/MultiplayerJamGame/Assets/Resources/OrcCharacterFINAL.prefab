@@ -554,6 +554,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  dontDestroyOnLoad: 0
 --- !u!1 &5971434314268433889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1533,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  dontDestroyOnLoad: 0
 --- !u!114 &226749482334852289
 MonoBehaviour:
   m_ObjectHideFlags: 0
