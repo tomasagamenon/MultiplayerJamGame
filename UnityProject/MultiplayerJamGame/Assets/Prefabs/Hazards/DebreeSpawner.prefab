@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957355387182428484}
   - component: {fileID: 957355387182428487}
+  - component: {fileID: -9076549541367388414}
   m_Layer: 0
   m_Name: DebreeSpawner
   m_TagString: Untagged
@@ -56,6 +57,29 @@ MonoBehaviour:
   - {fileID: 6994332462244404373, guid: 777601abfa8747b44a91d596073da08c, type: 3}
   minDebreeSpeed: 2
   maxDebreeSpeed: 6
+  photonView: {fileID: -9076549541367388414}
+--- !u!114 &-9076549541367388414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957355387182428486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &957355387505553813
 GameObject:
   m_ObjectHideFlags: 0
