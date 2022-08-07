@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ReviveStation : MonoBehaviour
 {
+    public GameObject orc;
+    public GameObject gnome;
     public float healingRadius = 5f;
     public float orcHealingSpeed = 1f;
     public float gnomeHealingSpeed = 1f;
@@ -17,13 +19,11 @@ public class ReviveStation : MonoBehaviour
     public int gnomeSecondRevive = 2;
     public Transform respawn;
 
-    private GameObject gnome;
-    private GameObject orc;
 
     private void Awake()
     {
-        gnome = GameObject.Find("GnomeCharacterFINAL");
-        orc = GameObject.Find("OrcCharacterFINAL");
+        orc = GameObject.Find(orc.name);
+        gnome = GameObject.Find(gnome.name);
     }
     private void Update()
     {
