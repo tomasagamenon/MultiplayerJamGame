@@ -98,12 +98,21 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.CurrentRoom == null)
             return;
-
+        int playerCount = 0;
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
             PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
-
+            if (playerCount == 0)
+            {
+                player1 = newPlayerItem;
+                playerCount++;
+            }
+            else
+            {
+                player2 = newPlayerItem;
+                playerCount = 0;
+            }
             if (player.Value==PhotonNetwork.LocalPlayer)
             {
                 newPlayerItem.ApplyLocalChanges();
@@ -122,10 +131,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         UpdatePlayerList();
     }
-
+    PlayerItem player1;
+    PlayerItem player2;
     private void Update()
     {
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2 && player1.character != player2.character)
             playButton.SetActive(true);
         else
             playButton.SetActive(false);
@@ -133,18 +143,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClick_PlayButton()
     {
-        PlayerItem typePlayer = null;
-        foreach (PlayerItem item in FindObjectsOfType<PlayerItem>())
-        {
-            if (typePlayer == null)
-                typePlayer = item;
-            else if (item.character == typePlayer.character)
-            {
-                int rNumber = Random.Range(0, 1);
-                item.ChangeAvatar(rNumber);
-                typePlayer.ChangeAvatar(1 - rNumber);
-            }
-        }
         PhotonNetwork.LoadLevel("Level 1");
     }
 }
