@@ -11,7 +11,7 @@ public class EnemyMove : MonoBehaviour
     public float walkModifier;
     public float attackMultiplierSpeed;
     public float distanceToAttack;
-    protected bool attacking;
+    public bool attacking;
 
     protected virtual void Start()
     {

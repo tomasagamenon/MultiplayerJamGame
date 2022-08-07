@@ -17,6 +17,7 @@ public class EnemyBoar : EnemyMove
     void Start()
     {
         attacking = false;
+        _timeWalking = 0;
     }
 
     // Update is called once per frame
@@ -32,8 +33,8 @@ public class EnemyBoar : EnemyMove
                 else
                 {
                     if (m_FacingRight)
-                        randomDirection = Random.Range(-1, 0);
-                    else randomDirection = Random.Range(0, 1);
+                        randomDirection = -1;
+                    else randomDirection = 1;
                 }
                 move = randomDirection;
                 _timeWalking = Random.Range(0.5f, maxTimeWalking);
@@ -42,21 +43,41 @@ public class EnemyBoar : EnemyMove
             else _currentTimeWalking += Time.deltaTime;
             Move(move, 1);
         }
+        Health playerTemp = null;
         foreach (Health player in FindObjectsOfType<Health>())
         {
-            if (distanceToAttack < Vector2.Distance(transform.position, player.transform.position))
-                foreach (EnemyBoar boar in herd)
-                    boar.HerdAttack(player.transform);
-            else attacking = false;
+            if (playerTemp == null)
+                playerTemp = player;
+            else if (Vector2.Distance(transform.position, player.transform.position) < Vector2.Distance(transform.position, playerTemp.transform.position))
+            {
+                if (distanceToAttack > Vector2.Distance(transform.position, player.transform.position))
+                {
+                    foreach (EnemyBoar boar in herd)
+                        boar.HerdAttack(player.transform);
+                }
+                else attacking = false;
+            } else
+            {
+                if (distanceToAttack > Vector2.Distance(transform.position, playerTemp.transform.position))
+                {
+                    foreach (EnemyBoar boar in herd)
+                        boar.HerdAttack(playerTemp.transform);
+                }
+                else attacking = false;
+            }
         }
 
     }
 
     public void HerdAttack(Transform player)
     {
-        Debug.Log("ataco");
-        attacking = true;
-        Attack(player);
+        if (distanceToAttack > Vector2.Distance(transform.position, player.transform.position))
+        {
+            Debug.Log("ataco");
+            attacking = true;
+            Attack(player);
+        }
+        else attacking = false;
     }
 
     protected override void Attack(Transform player)

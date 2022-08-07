@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Rigidbody2D: {fileID: -4543569023544433422}
   walkModifier: 0.5
   attackMultiplierSpeed: 1.5
-  distanceToAttack: 4
+  distanceToAttack: 15
+  attacking: 0
   myHerd: {fileID: 0}
   distanceOfHerd: 8
   herd: []
