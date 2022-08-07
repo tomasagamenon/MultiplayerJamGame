@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public float maxTime;
     float _currentTime;
     float _time;
+    bool _isActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && _isActive)
         {
             if (_currentTime >= _time)
             {
@@ -30,5 +31,16 @@ public class EnemySpawner : MonoBehaviour
             }
             else _currentTime += Time.deltaTime;
         }
+    }
+
+    public void Activate()
+    {
+        _isActive = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+            Activate();
     }
 }
