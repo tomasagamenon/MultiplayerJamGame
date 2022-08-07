@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7957f2565932c5b4c86de2a72e4f7650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orc: {fileID: 5971434313359785628, guid: c421caef86be977419c6d12673773b90, type: 3}
-  gnome: {fileID: 1259865615950576321, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
+  orc: {fileID: 0}
+  gnome: {fileID: 0}
   healingRadius: 5
   orcHealingSpeed: 1.5
   gnomeHealingSpeed: 1

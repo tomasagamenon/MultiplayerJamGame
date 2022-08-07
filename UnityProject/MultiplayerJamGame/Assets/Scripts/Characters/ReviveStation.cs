@@ -31,6 +31,14 @@ public class ReviveStation : MonoBehaviour
     }
     private void Update()
     {
+        if(orc == null)
+        {
+            orc = FindObjectOfType<OrcController>().gameObject;
+        }
+        if(gnome == null)
+        {
+            gnome = FindObjectOfType<GnomeController>().gameObject;
+        }
         if (!revived)
         {
             CheckPlayers();
