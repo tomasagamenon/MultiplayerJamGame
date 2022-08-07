@@ -20,9 +20,7 @@ public class ReviveStation : MonoBehaviour
     public Transform respawn;
 
 
-    private void Awake()
-    {
-    }
+    
     private void Start()
     {
         orc = FindObjectOfType<OrcController>().gameObject;
@@ -41,6 +39,7 @@ public class ReviveStation : MonoBehaviour
         {
             if(Time.time >= gnomeCooldown)
             {
+                Debug.Log("El ñomo esta en el area");
                 gnome.GetComponent<Health>().Heal(1);
                 gnomeCooldown = Time.time + gnomeHealingSpeed;
             }
@@ -49,6 +48,7 @@ public class ReviveStation : MonoBehaviour
         {
             if (Time.time >= orcCooldown)
             {
+                Debug.Log("La orca esta en el area");
                 orc.GetComponent<Health>().Heal(1);
                 orcCooldown = Time.time + orcHealingSpeed;
             }
