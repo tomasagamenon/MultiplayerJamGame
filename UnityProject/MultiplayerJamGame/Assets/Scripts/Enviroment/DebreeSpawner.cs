@@ -29,6 +29,11 @@ public class DebreeSpawner : MonoBehaviour
     [Photon.Pun.RPC]
     private void RTC_DebreeSpawn(Vector2 position, float rotation, float speed, int random)
     {
+        Spawn(position, rotation, speed, random);
+    }
+
+    void Spawn(Vector2 position, float rotation, float speed, int random)
+    {
         Debree debree = Instantiate(debrisPrefs[random], position, Quaternion.Euler(0, 0, rotation)).GetComponent<Debree>();
         debree.speed = speed;
     }
