@@ -89,5 +89,6 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         playerProperties["playerAvatar"] = number;
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        Debug.Log((int)playerProperties["playerAvatar"]);
     }
 }
