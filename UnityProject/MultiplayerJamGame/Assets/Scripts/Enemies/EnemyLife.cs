@@ -20,7 +20,10 @@ public class EnemyLife : MonoBehaviour
     }
     private void Death()
     {
-        transform.gameObject.SetActive(false);
+        GetComponent<Animator>().SetBool("Dead", true);
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        //transform.gameObject.SetActive(false);
         //death animation and disabling code and collider
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : EnemyLife
 {
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;
     public Rigidbody2D m_Rigidbody2D;
@@ -25,6 +25,7 @@ public class EnemyMove : MonoBehaviour
 
     protected void Move(float move, float attackMovement)
     {
+        GetComponent<Animator>().SetFloat("Speed", Mathf.Abs(move));
         move *= walkModifier * attackMovement;
         Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);

@@ -75,6 +75,7 @@ public class EnemyBoar : EnemyMove
         {
             Debug.Log("ataco");
             attacking = true;
+            GetComponent<Animator>().SetTrigger("Attack");
             Attack(player);
         }
         else attacking = false;
