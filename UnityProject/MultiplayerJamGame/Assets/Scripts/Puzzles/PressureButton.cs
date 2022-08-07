@@ -13,11 +13,15 @@ public class PressureButton : MonoBehaviour
     public float time;
     private float cooldown;
     private SpriteRenderer sr;
+    private Animator animator;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         activable = linkedObject.GetComponent<IActivable>();
         sr = GetComponent<SpriteRenderer>();
+        audioManager = GetComponent<AudioManager>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -62,12 +66,14 @@ public class PressureButton : MonoBehaviour
     {
         isActive = false;
         activable.TurnOff();
-        sr.color = Color.red;
+        audioManager.Play("Unpress");
+        animator.SetBool("Pressed", false);
     }
     private void ButtonOn()
     {
         isActive = true;
         activable.TurnOn();
-        sr.color = Color.green;
+        audioManager.Play("Press");
+        animator.SetBool("Pressed", true);
     }
 }

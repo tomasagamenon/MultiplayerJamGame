@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LaserPointing : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class LaserPointing : MonoBehaviour
                 LaserStop();
                 stopped = true;
             }
-            else
+            else if(stopped)
             {
                 stopped = false;
                 LaserStart();
@@ -70,6 +71,7 @@ public class LaserPointing : MonoBehaviour
     public void LaserStart()
     {
         animator.SetBool("Active", true);
+        GetComponent<AudioManager>().Play("Activate");
         //audio
     }
     public void ActivateLaser()
@@ -82,6 +84,7 @@ public class LaserPointing : MonoBehaviour
     public void LaserStop()
     {
         animator.SetBool("Active", false);
+        GetComponent<AudioManager>().Play("Deactivate");
         laserPoint.SetActive(false);
         laserMedium.SetActive(false);
         //audio
