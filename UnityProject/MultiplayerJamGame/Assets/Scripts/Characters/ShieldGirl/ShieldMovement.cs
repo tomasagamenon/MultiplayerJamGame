@@ -137,7 +137,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     }
     public void TurnOffShield()
     {
-        photonView.RPC("RPC_ToggleShield", RpcTarget.All, new object[] { shield.transform, false });
+        ShieldOnline(shield.transform.position, shield.transform.rotation, false);
         shieldActive = false;
     }
 }
