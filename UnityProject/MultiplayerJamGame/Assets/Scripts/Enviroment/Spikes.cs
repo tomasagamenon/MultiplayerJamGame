@@ -14,7 +14,7 @@ public class Spikes : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 dir = (Vector2)collision.transform.position - collision.GetContact(0).point + pushOffset;
+            Vector2 dir = (Vector2)collision.gameObject.GetComponent<Health>().playerCentre.position - collision.GetContact(0).point + pushOffset;
             dir = dir.normalized;
             rb.AddForce(dir * knockback, ForceMode2D.Impulse);
             collision.gameObject.GetComponent<Health>().Damage(damage, invulTime);
