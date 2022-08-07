@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class DebreeSpawner : MonoBehaviour
 {
@@ -29,14 +30,10 @@ public class DebreeSpawner : MonoBehaviour
     [Photon.Pun.RPC]
     private void RTC_DebreeSpawn(Vector2 position, float rotation, float speed, int random)
     {
-        Spawn(position, rotation, speed, random);
-    }
-
-    void Spawn(Vector2 position, float rotation, float speed, int random)
-    {
-        Debree debree = Instantiate(debrisPrefs[random], position, Quaternion.Euler(0, 0, rotation)).GetComponent<Debree>();
+        Debree debree = PhotonNetwork.Instantiate(debrisPrefs[random].name, position, Quaternion.Euler(0, 0, rotation)).GetComponent<Debree>();
         debree.speed = speed;
     }
+
     private void OnDrawGizmosSelected()
     {
         Vector3 a = new Vector3(Mathf.Cos(Mathf.Deg2Rad * minRotation), Mathf.Sin(Mathf.Deg2Rad * minRotation), 0);
