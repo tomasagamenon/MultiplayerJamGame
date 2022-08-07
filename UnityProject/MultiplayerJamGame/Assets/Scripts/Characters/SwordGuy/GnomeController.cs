@@ -51,21 +51,24 @@ public class GnomeController : MonoBehaviour, ICharacters
             {
                 attack.Attack();
             }
-            if (Input.GetButtonDown("Shoot"))
-            {
-                weapon.Fire();
-            }
+            //if (Input.GetButtonDown("Shoot"))
+            //{
+            //    weapon.Fire();
+            //}
             if(Input.GetAxis("GnomeHorizontal") != 0 && Input.GetButtonDown("Dash") && stamina.EnoughStamina(dash.staminaCost))
             {
                 dash.DoDash(horizontalMove);
                 stamina.SpendStamina(dash.staminaCost);
             }
-            if (Input.GetButtonDown("ToggleWeapon"))
-                weaponMov.ToggleWeapon();
-            if (Input.GetButton("WeaponHorizontal") || Input.GetButton("WeaponVertical"))
+            //if (Input.GetButtonDown("ToggleWeapon"))
+            //    weaponMov.ToggleWeapon();
+            if (Input.GetButton("WeaponHorizontal") || Input.GetAxisRaw("WeaponVertical") > 0)
             {
                 if (activeWeapon)
+                {
+                    weapon.Fire();
                     return;
+                }
                 weaponMov.ToggleWeapon();
                 activeWeapon = true;
                 animator.SetBool("Weapon", true);

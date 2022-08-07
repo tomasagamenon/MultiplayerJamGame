@@ -66,8 +66,11 @@ public class Dash : MonoBehaviour
     IEnumerator MakeDash(float direction)
     {
         GetComponent<Animator>().SetBool("Rolling", true);
-        if(!isDashing)
+        if (!isDashing)
+        {
             health.MakeInvulnerable(dashTime);
+            GetComponent<AudioManager>().Play("Dash");
+        }
         isDashing = true;
         //float gravity = rb.gravityScale;
         //rb.gravityScale = 0;

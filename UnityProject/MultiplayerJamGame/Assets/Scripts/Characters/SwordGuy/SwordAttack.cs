@@ -75,12 +75,18 @@ public class SwordAttack : MonoBehaviour
             {
                 Debug.Log("You hit " + impact.name);
                 impact.GetComponent<EnemyLife>().TakeDamage(attackDamage);
+                if(combo)
+                    GetComponent<AudioManager>().Play("PunchHit3");
+                else
+                    GetComponent<AudioManager>().Play("PunchHit2");
             } else if (impact.CompareTag("Lever"))
             {
+                GetComponent<AudioManager>().Play("PunchHit1");
                 impact.GetComponent<Lever>().InteractLever();
             }
             else if (impact.GetComponent<ReviveStation>())
             {
+                GetComponent<AudioManager>().Play("PunchHit1");
                 impact.GetComponent<ReviveStation>().ReviveOrc();
             }
         }

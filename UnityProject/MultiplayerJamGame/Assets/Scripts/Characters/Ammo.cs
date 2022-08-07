@@ -13,6 +13,14 @@ public class Ammo : MonoBehaviour
                 SelfDestruct();
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Weapon>())
+        {
+            if (collision.gameObject.GetComponent<Weapon>().AddAmmo(amount))
+                SelfDestruct();
+        }
+    }
     public void SelfDestruct()
     {
         //anim or sound?

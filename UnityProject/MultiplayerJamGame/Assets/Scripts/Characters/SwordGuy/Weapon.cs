@@ -17,14 +17,13 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        isAvaiable = true;
         shootingPoint.gameObject.SetActive(isAvaiable);
         actualAmmo = initialAmmo;
         AmmoUpdate();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            ToggleWeapon();
         //if(Time.time >= fireCooldown && isAvaiable)
         //{
         //    if (Input.GetKeyDown(KeyCode.F))
@@ -45,11 +44,15 @@ public class Weapon : MonoBehaviour
                 actualAmmo--;
                 AmmoUpdate();
                 fireCooldown = Time.time + 1f / fireRate;
-                //Sound
+                if (Random.Range(0, 1) == 1)
+                    GetComponent<AudioManager>().Play("Shoot1");
+                else
+                    GetComponent<AudioManager>().Play("Shoot2");
             }
             else
             {
                 Debug.Log("No ammo");
+                GetComponent<AudioManager>().Play("NoAmmo");
                 //no ammo!
             }
         }
@@ -88,6 +91,7 @@ public class Weapon : MonoBehaviour
         {
             actualAmmo = Mathf.Clamp(ammo + actualAmmo, 0, maxAmmo);
             AmmoUpdate();
+            GetComponent<AudioManager>().Play("PickAmmo");
             return true;
         }
         return false;
