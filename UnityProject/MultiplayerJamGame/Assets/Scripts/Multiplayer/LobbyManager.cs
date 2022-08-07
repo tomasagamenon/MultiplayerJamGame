@@ -137,14 +137,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         foreach (PlayerItem item in FindObjectsOfType<PlayerItem>())
         {
             if (typePlayer == null)
-            {
-                Debug.Log("a");
                 typePlayer = item;
-            }
             else if (item.character == typePlayer.character)
             {
                 int rNumber = Random.Range(0, 1);
-                Debug.Log("iii");
                 item.ChangeAvatar(rNumber);
                 typePlayer.ChangeAvatar(1 - rNumber);
             }
