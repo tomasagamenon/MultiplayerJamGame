@@ -9,11 +9,20 @@ public class SwordAttack : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
-    public float attackRate = 3f;
+    public float attackRate = 4f;
+    public float attackMargin = 0.3f;
     private float attackCooldown = 0f;
+
+    private bool isAttacking = false;
+    private bool combo = false;
+    private float lastAttack = 0f;
 
     void Update()
     {
+        if (lastAttack <= Time.time)
+        {
+            EndAttack();
+        }
         //if (Time.time >= attackCooldown)
         //{
         //    if (Input.GetKeyDown(KeyCode.F))
@@ -25,14 +34,37 @@ public class SwordAttack : MonoBehaviour
     }
     public void Attack()
     {
-        if(Time.time >= attackCooldown)
+        if(Time.time >= attackCooldown || combo)
         {
-            GetComponent<Animator>().SetTrigger("Attacking");
-            DoDamage();
+            if(lastAttack > Time.time && isAttacking)
+            {
+                GetComponent<Animator>().SetBool("SecondAttack", true);
+                GetComponent<AudioManager>().Play("Punch4");
+                //isAttacking = false;
+            }
+            else if (!isAttacking)
+            {
+                GetComponent<Animator>().SetBool("Attacking", true);
+                GetComponent<Animator>().SetTrigger("FirstAttack");
+                GetComponent<AudioManager>().Play("Punch3");
+                isAttacking = true;
+                combo = true;
+                lastAttack = Time.time + attackMargin;
+            }
             attackCooldown = Time.time + 1f / attackRate;
         }
     }
-    //later call this at the right time in the animation
+    public void EndAttack()
+    {
+        GetComponent<Animator>().SetBool("Attacking", false);
+        GetComponent<Animator>().SetBool("SecondAttack", false);
+        isAttacking = false;
+    }
+    public void UnableCombo()
+    {
+        combo = false;
+        //EndAttack();
+    }
     public void DoDamage()
     {
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
