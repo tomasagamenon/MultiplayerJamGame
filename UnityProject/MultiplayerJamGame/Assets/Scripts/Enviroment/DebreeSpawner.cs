@@ -22,14 +22,14 @@ public class DebreeSpawner : MonoBehaviour
             float rotation = Random.Range(minRotation, maxRotation);
             float speed = Random.Range(minDebreeSpeed, maxDebreeSpeed);
             int random = Random.Range(0, debrisPrefs.Length);
-            photonView.RPC("RTC_DebreeSpawn", RpcTarget.All, new object[] { position, rotation, speed , random });
+            photonView.RPC("RTC_DebreeSpawn", RpcTarget.All, new object[] { position, rotation, speed , debrisPrefs[random] });
             spawnCooldown = Time.time + 1f / spawnRate;
         }
     }
     [Photon.Pun.RPC]
-    private void RTC_DebreeSpawn(Vector2 position, float rotation, float speed, int random)
+    private void RTC_DebreeSpawn(Vector2 position, float rotation, float speed, GameObject random)
     {
-        Debree debree = Instantiate(debrisPrefs[random], position, Quaternion.Euler(0, 0, rotation)).GetComponent<Debree>();
+        Debree debree = Instantiate(random, position, Quaternion.Euler(0, 0, rotation)).GetComponent<Debree>();
         debree.speed = speed;
     }
     private void OnDrawGizmosSelected()
