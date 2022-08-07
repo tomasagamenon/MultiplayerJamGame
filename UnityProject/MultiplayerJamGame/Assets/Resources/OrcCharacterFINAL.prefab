@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 7
+  isDead: 0
   bar: {fileID: 6812829944332730703}
   playerCentre: {fileID: 6812829946175849253}
 --- !u!114 &1052101164249287695
