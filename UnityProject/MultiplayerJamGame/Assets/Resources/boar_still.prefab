@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 800438106799372743}
   - component: {fileID: 4825494481498873494}
   - component: {fileID: 7868299926258848294}
+  - component: {fileID: 679329897}
   m_Layer: 6
   m_Name: boar_still
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3129fe0bf561ae54f9ecd2b00d87400e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalLife: 100
   m_MovementSmoothing: 0.05
   m_Rigidbody2D: {fileID: -4543569023544433422}
   walkModifier: 0.5
@@ -178,7 +180,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7868299926258848294}
-  sceneViewId: 0
+  sceneViewId: 9
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &7868299926258848294
@@ -214,3 +216,23 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!95 &679329897
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333579250755025483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6972a06315bc0c94fa6f34b9263f7333, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
