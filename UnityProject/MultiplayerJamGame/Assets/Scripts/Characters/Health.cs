@@ -12,8 +12,9 @@ public class Health : MonoBehaviour
     private float invulCooldown;
     private bool stunned = false;
     private float stunCooldown;
+    public bool isDead;
 
-    private bool healing = false;
+    //private bool healing = false;
 
     private ICharacters controller;
 
@@ -142,6 +143,7 @@ public class Health : MonoBehaviour
     }
     private void Death()
     {
+        isDead = true;
         animator.SetBool("Dead", true);
         audioManager.Play("Death");
         controller.DeathDisable();
@@ -150,6 +152,7 @@ public class Health : MonoBehaviour
     }
     public void Revive(int life)
     {
+        isDead = false;
         animator.SetBool("Dead", false);
         controller.ReviveEnable();
         Heal(life);
