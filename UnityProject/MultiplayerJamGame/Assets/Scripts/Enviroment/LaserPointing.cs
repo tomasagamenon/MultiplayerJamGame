@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using Photon.Pun;
 
-public class LaserPointing : MonoBehaviour
+public class LaserPointing : MonoBehaviour, IPunObservable
 {
     public GameObject laserMedium;
     public SpriteRenderer medium;
@@ -42,6 +43,7 @@ public class LaserPointing : MonoBehaviour
         if(!stopped && !turnedOff)
             SetPosition();
     }
+    #region IPunObservable implementation
     private void SetPosition()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), -transform.up, raycastLenght, layer);
@@ -68,6 +70,7 @@ public class LaserPointing : MonoBehaviour
             laserMedium.GetComponent<BoxCollider2D>().offset = offset;
         }
     }
+    #endregion
     public void LaserStart()
     {
         animator.SetBool("Active", true);
@@ -88,5 +91,22 @@ public class LaserPointing : MonoBehaviour
         laserPoint.SetActive(false);
         laserMedium.SetActive(false);
         //audio
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        throw new System.NotImplementedException(); 
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(laserMedium);
+            stream.SendNext(medium);
+        }
+        else
+        {
+            // Network player, receive data
+            laserMedium = (GameObject)stream.ReceiveNext();
+            medium = (SpriteRenderer)stream.ReceiveNext();
+        }
     }
 }
