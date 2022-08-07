@@ -22,6 +22,7 @@ public class ReviveStation : MonoBehaviour
 
     private void Awake()
     {
+
     }
     private void Start()
     {

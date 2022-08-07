@@ -146,6 +146,10 @@ public class Health : MonoBehaviour
         isDead = true;
         animator.SetBool("Dead", true);
         audioManager.Play("Death");
+        if(GetComponent<OrcController>())
+            gameObject.GetComponentInChildren<CameraTemp>().t = FindObjectOfType<GnomeController>().gameObject.transform;
+        if (GetComponent<GnomeController>())
+            gameObject.GetComponentInChildren<CameraTemp>().t = FindObjectOfType<OrcController>().gameObject.transform;
         controller.DeathDisable();
         capsule.enabled = false;
         box.enabled = false;
