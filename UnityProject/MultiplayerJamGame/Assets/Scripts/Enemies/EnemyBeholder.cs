@@ -42,6 +42,7 @@ public class EnemyBeholder : EnemyMove
 
     protected override void Attack(Transform player)
     {
+        Debug.Log("attack");
         if (!attacking)
             playerPos = player.position;
         var heading = playerPos - transform.position;
@@ -49,13 +50,13 @@ public class EnemyBeholder : EnemyMove
         direction = heading / distance;
         if (distance <= 0.5f )
         {
-            Move(-direction.x, attackMultiplierSpeed);
-            Move(-direction.y, attackMultiplierSpeed);
+            Move(-direction.x * Time.deltaTime, attackMultiplierSpeed);
+            Move(-direction.y * Time.deltaTime, attackMultiplierSpeed);
         }
         else
         {
-            Move(direction.x, attackMultiplierSpeed);
-            Move(direction.y, attackMultiplierSpeed);
+            Move(direction.x * Time.deltaTime, attackMultiplierSpeed);
+            Move(direction.y * Time.deltaTime, attackMultiplierSpeed);
         }
     }
 }

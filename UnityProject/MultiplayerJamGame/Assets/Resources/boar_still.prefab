@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 800438106799372743}
   - component: {fileID: 4825494481498873494}
   - component: {fileID: 7868299926258848294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boar_still
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementSmoothing: 0.05
-  m_Rigidbody2D: {fileID: 0}
-  walkModifier: 1
-  attackMultiplierSpeed: 3
+  m_Rigidbody2D: {fileID: -4543569023544433422}
+  walkModifier: 40
+  attackMultiplierSpeed: 50
   distanceToAttack: 4
   myHerd: {fileID: 0}
   distanceOfHerd: 8
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &800438106799372743
 BoxCollider2D:
   m_ObjectHideFlags: 0

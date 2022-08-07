@@ -13,18 +13,21 @@ public class EnemyHerd : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("here");
-        for (int i = Random.Range(minBoarsInHerd, maxBoarsInHerd); i >= _herd.Count;)
+        if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log(i);
-            GameObject newBoar = PhotonNetwork.Instantiate(enemyBoarPrefab.name, transform.position, transform.rotation);
-            _herd.Add(newBoar.GetComponent<EnemyBoar>());
+            for (int i = Random.Range(minBoarsInHerd, maxBoarsInHerd); i >= _herd.Count;)
+            {
+                Debug.Log(i);
+                GameObject newBoar = PhotonNetwork.Instantiate(enemyBoarPrefab.name, transform.position, transform.rotation);
+                _herd.Add(newBoar.GetComponent<EnemyBoar>());
+            }
+            foreach (EnemyBoar boar in _herd)
+            {
+                boar.herd = _herd;
+                boar.myHerd = this;
+            }
         }
-        foreach (EnemyBoar boar in _herd)
-        {
-            boar.herd = _herd;
-            boar.myHerd = this;
-        }
+        else gameObject.SetActive(false);
     }
 
     void Update()
