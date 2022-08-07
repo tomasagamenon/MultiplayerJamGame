@@ -69,12 +69,12 @@ public class Dash : MonoBehaviour
         if(!isDashing)
             health.MakeInvulnerable(dashTime);
         isDashing = true;
-        float gravity = rb.gravityScale;
-        rb.gravityScale = 0;
+        //float gravity = rb.gravityScale;
+        //rb.gravityScale = 0;
         rb.AddForce(new Vector2(direction * dashDistance, downwardForce), ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
-        rb.gravityScale = gravity;
+        //rb.gravityScale = gravity;
         GetComponent<Animator>().SetBool("Rolling", false);
     }
     public void DoDash(float direction)

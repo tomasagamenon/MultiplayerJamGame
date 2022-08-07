@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class CharacterMovement : MonoBehaviour
 {
+	[SerializeField] private Transform[] childObjects;
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
 	[SerializeField] private int validJumps = 1;
 	[SerializeField] private float walkModifier;
@@ -181,6 +182,10 @@ public class CharacterMovement : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
 		transform.Rotate(0f, 180f, 0f);
+        foreach (Transform transform in childObjects)
+        {
+			transform.Rotate(0f, 180f, 0f);
+        }
 		// Multiply the player's x local scale by -1.
 		//Vector3 theScale = transform.localScale;
 		//theScale.x *= -1;

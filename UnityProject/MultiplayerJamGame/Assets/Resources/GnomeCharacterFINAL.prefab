@@ -160,6 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce34a4ef3adbeb84784a8b71d68175d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObjects:
+  - {fileID: 3781032826898541304}
+  - {fileID: 2452015502998478920}
   m_JumpForce: 1000
   validJumps: 1
   walkModifier: 0.5

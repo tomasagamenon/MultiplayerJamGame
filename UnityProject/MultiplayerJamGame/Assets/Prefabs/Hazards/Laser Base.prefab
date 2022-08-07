@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2121934038983774559}
   - component: {fileID: 2121934038983774545}
   - component: {fileID: 2121934038983774544}
+  - component: {fileID: 842042398}
   m_Layer: 10
   m_Name: Laser Medium
   m_TagString: Untagged
@@ -150,6 +151,102 @@ MonoBehaviour:
   damage: 1
   invulTime: 1
   stunTime: 0.5
+--- !u!82 &842042398
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121934038983774557}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8abd243d3bfe48845be7d4ebfc49344b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2121934039685040171
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +260,7 @@ GameObject:
   - component: {fileID: 2121934039685040173}
   - component: {fileID: 2121934039685040170}
   - component: {fileID: 2121934039685040174}
+  - component: {fileID: 1810208655}
   m_Layer: 10
   m_Name: Laser Base
   m_TagString: Untagged
@@ -277,7 +375,7 @@ MonoBehaviour:
   point: {fileID: 2121934040327596982}
   layer:
     serializedVersion: 2
-    m_Bits: 243
+    m_Bits: 2177
   raycastLenght: 15
   stopCooldown: 1
   turnedOff: 0
@@ -307,6 +405,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1810208655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121934039685040171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667e24f785c775946bed06cc287a42ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Activate
+    clip: {fileID: 8300000, guid: cce82a0c82550a746862875f67ac8a5f, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Deactivate
+    clip: {fileID: 8300000, guid: 71435ec4435d1dd45aa0481416d4550d, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &2121934040327596983
 GameObject:
   m_ObjectHideFlags: 0

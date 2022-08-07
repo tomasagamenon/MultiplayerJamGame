@@ -11,15 +11,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Debris
   - Water
   - UI
   - Enemy
-  - Dash
+  - Shield
   - Gnome
   - Orc
   - Hazard
-  - IgnoreDebree
+  - IgnoreDebris
   - Puzzle
   - 
   - 
