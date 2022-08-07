@@ -39,6 +39,7 @@ public class Shield : MonoBehaviour
                     Vector2 dir = (Vector2)collider2D.GetComponent<Health>().playerCentre.position - (Vector2)player.position;
                     dir = dir.normalized;
                     collider2D.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushKnockback, ForceMode2D.Impulse);
+                    collider2D.gameObject.GetComponent<Health>().Damage(0, 0, 0.5f);
                     audioManager.Play("Push");
                 }
                 else if (collider2D.CompareTag("Enemy"))
