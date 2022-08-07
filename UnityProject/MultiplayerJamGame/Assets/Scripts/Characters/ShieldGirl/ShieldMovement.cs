@@ -98,6 +98,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     }
     public void ToggleShield()
     {
+        Debug.Log("a");
         GetComponent<PhotonView>().RPC("RPC_ToggleShield", RpcTarget.All, new object[] {shield.transform, !shield.gameObject.activeSelf });
         shieldActive = !shieldActive;
         if (shieldActive && firstActive)
@@ -112,6 +113,7 @@ public class ShieldMovement : MonoBehaviourPunCallbacks
     [Photon.Pun.RPC]
     private void RPC_ToggleShield(Transform transform, bool active)
     {
+        Debug.Log("AAA");
         shield.position = transform.position;
         shield.rotation = transform.rotation;
 
