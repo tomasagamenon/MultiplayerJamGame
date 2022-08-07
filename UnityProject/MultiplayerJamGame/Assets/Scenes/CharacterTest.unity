@@ -575,17 +575,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11212529527849908, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1259865615950576312, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1259865615950576312, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1259865615950576312, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1259865615950576312, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4848,6 +4852,245 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2685391520187773855, guid: b3a2dbcf3c236c34b82e2240c48707a7, type: 3}
   m_PrefabInstance: {fileID: 2685391521094654404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1347673650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1259865615950576321, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
+  m_PrefabInstance: {fileID: 419981076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1347673667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1259865615950576312, guid: 3ee4f852e9dd6e141b095c5c94a2fb4f, type: 3}
+  m_PrefabInstance: {fileID: 419981076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1347673668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347673650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667e24f785c775946bed06cc287a42ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Death
+    clip: {fileID: 8300000, guid: 8e17e7aa3eb754b4496bb10028181353, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: 2ad49803c210f924d9854eecd430166e, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: 9f8d32628be70c94ca8bc5e871b30e05, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: 0ce2dbba26577ce4e93f451d3cb42bdf, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep4
+    clip: {fileID: 8300000, guid: e936df1d6ca194543ac3d928ddc0699e, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep5
+    clip: {fileID: 8300000, guid: 5fd1e93b5e830274d854f7e47d194a70, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: StaminaRecharge
+    clip: {fileID: 8300000, guid: 4b039eb3e407a594497cd479f211553f, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: StaminaDepleted
+    clip: {fileID: 8300000, guid: eda5862e77f2b174da0c8127875979f1, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Revive
+    clip: {fileID: 8300000, guid: 05bc0f46505e8354192ae1f7659a348f, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 27fdffcdb8c91bb46ad58fc2e05a52bc, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Healing
+    clip: {fileID: 8300000, guid: 16200bad0ce467f4f88c8152363ab481, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.5
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: b8d2061536ad02d428a83f24629c8b20, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Punch1
+    clip: {fileID: 8300000, guid: f2499e6960602024897fcd6b03b9157a, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Punch2
+    clip: {fileID: 8300000, guid: a46bab0c152bcb64b99a3e642834a7cc, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Punch3
+    clip: {fileID: 8300000, guid: 6d353b520169ff4498a29b40676638d2, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Punch4
+    clip: {fileID: 8300000, guid: deb1b4da2f7cfbc4ebc94b013b24f025, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PunchHit1
+    clip: {fileID: 8300000, guid: b45224dd97d3c9b4ea19d39cee5a47d7, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PunchHit2
+    clip: {fileID: 8300000, guid: a29603966ffd0c748b841d3648b7a04b, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PunchHit3
+    clip: {fileID: 8300000, guid: c2ea20b487daf6149ade3e7e8063d067, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 8a2e4f5c88457fa40a3f2826faf68a2b, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shoot1
+    clip: {fileID: 8300000, guid: 4c1946da70a19744b96506d663f0ebc5, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shoot2
+    clip: {fileID: 8300000, guid: bc04058c12cc93749a5d0ed4ac629ba0, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: NoAmmo
+    clip: {fileID: 8300000, guid: 26381f89c4364fe44b79fd65d9bf3d33, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PickAmmo
+    clip: {fileID: 8300000, guid: 623f25fae061f664584f5086538bd647, type: 3}
+    audioMixerGroup: {fileID: -1539159377202086545, guid: 775500de40649f54aa2be3da73b117a4, type: 2}
+    volume: 0.8
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &1385551632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,7 +5256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1461966422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,7 +5392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1470488953
 Camera:
   m_ObjectHideFlags: 0
@@ -8253,11 +8496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971434313359785606, guid: c421caef86be977419c6d12673773b90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 41.25
       objectReference: {fileID: 0}
     - target: {fileID: 5971434313359785606, guid: c421caef86be977419c6d12673773b90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5971434313359785606, guid: c421caef86be977419c6d12673773b90, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8294,6 +8537,10 @@ PrefabInstance:
     - target: {fileID: 5971434313359785628, guid: c421caef86be977419c6d12673773b90, type: 3}
       propertyPath: m_Name
       value: OrcCharacterFINAL (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190314929956967303, guid: c421caef86be977419c6d12673773b90, type: 3}
+      propertyPath: sceneViewId
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c421caef86be977419c6d12673773b90, type: 3}
@@ -11493,7 +11740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8472102761044788515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11506,5 +11753,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ace11ec00a589409ad88dd9692977d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 2667006502796963320}
+  t: {fileID: 1347673667}
   verticalOffset: 1
