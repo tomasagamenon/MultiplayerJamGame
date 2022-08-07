@@ -14,8 +14,13 @@ public class PlayerSpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[randomNumber];
         Debug.Log((int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]);
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-        GameObject Player = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+        GameObject Player = PhotonNetwork.Instantiate(playerToSpawn.name, transform.position, Quaternion.identity);
         FindObjectOfType<Camera>().transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -10);
         FindObjectOfType<CameraTemp>().t = Player.transform;
+        foreach(Health player in FindObjectsOfType<Health>())
+        {
+            if (player.GetComponent<GnomeController>())
+                player.transform.position = spawnPoints[0].position;
+        }    
     }
 }
