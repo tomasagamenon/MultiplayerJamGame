@@ -4,9 +4,14 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour
 {
-    public int maxHealth;
+    [SerializeField]
+    private int maxHealth;
     protected int actualHealth;
-    public int ActualHealth { get { return actualHealth; } set { actualHealth = value; CheckDeath(); } }
+    [SerializeField]
+    private int iFramesSeconds;
+    private bool iFrames;
+    public int ActualHealth { get { return actualHealth; } set { if (iFrames && actualHealth < value) return;
+            actualHealth = value; StartCoroutine(IFrames()); CheckDeath(); } }
 
     protected virtual void Start()
     {
@@ -22,5 +27,12 @@ public abstract class Health : MonoBehaviour
     protected virtual void Death()
     {
         
+    }
+
+    IEnumerator IFrames()
+    {
+        iFrames = true;
+        yield return new WaitForSeconds(iFramesSeconds);
+        iFrames = false;
     }
 }
