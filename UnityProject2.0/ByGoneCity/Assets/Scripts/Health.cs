@@ -5,7 +5,9 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     [SerializeField]
-    private int maxHealth;
+    protected CharacterData Data;
+    [SerializeField]
+    protected Animator Animator;
     protected int actualHealth;
     [SerializeField]
     private int iFramesSeconds;
@@ -15,7 +17,7 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void Start()
     {
-        actualHealth = maxHealth;
+        actualHealth = Data.maxHealth;
     }
 
     private void CheckDeath()

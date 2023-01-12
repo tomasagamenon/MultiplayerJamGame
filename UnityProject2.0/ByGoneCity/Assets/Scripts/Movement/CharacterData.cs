@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Movement Data")]
-public class MovementData : ScriptableObject
+[CreateAssetMenu(menuName = "Character Data")]
+public class CharacterData : ScriptableObject
 {
+    [Header("Health")]
+    public int maxHealth;
+    [Header("Stamina")]
+    public float maxStamina;
+    public float regeneration;
+    public float recoverRate;
     [HideInInspector] public float gravityStrenght, gravityScale;
 
     [Header("Gravity")]

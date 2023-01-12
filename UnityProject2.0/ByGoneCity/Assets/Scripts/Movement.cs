@@ -1,29 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public abstract class Movement : Health
+public abstract class Movement : Stamina
 {
     // Character movement values
-    public MovementData Data;
 
     private Rigidbody2D _rb;
     private SpriteRenderer sprite;
-
+    #region State Parameters
+    // States
     protected bool isFacingRight;
     protected bool isJumping;
     protected bool isSliding;
+    protected bool isDashing;
+    // Timer
     protected float lastOnGroundTime;
-
+    // Jump
     private bool _isJumpCut;
     private bool _isJumpFalling;
-
-    private Vector2 _moveInput;
     private int _jumpQuantity;
+    //Dash
+    private int _dashesLeft;
+    private Vector2 _lastDashDir;
+    private bool _isDashAttacking;
+    #endregion
+    #region Input Parameters
+    private Vector2 _moveInput;
     protected float lastPressedJumpTime;
+    protected float lastPressedDashTime;
+    #endregion
 
+    #region Check Parameters
     [SerializeField] private Transform _groundCheckPoint;
     [SerializeField] private Vector2 _groundCheckSize = new(0.49f, 0.03f);
+    #endregion
 
     [SerializeField] private LayerMask _groundLayer;
 
@@ -39,22 +51,32 @@ public abstract class Movement : Health
         SetGravityScale(Data.gravityScale);
         _jumpQuantity = Data.jumpQuantity;
     }
+    public void OnMove(InputAction.CallbackContext input)
+    {
+        _moveInput = input.ReadValue<Vector2>();
+        if (_moveInput.x != 0)
+            CheckDirectionToFace(_moveInput.x > 0);
+        Animator.SetFloat("Speed", Mathf.Abs(_moveInput.x));
+    }
+
+    public void OnJump(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+            OnJumpInput();
+        if (input.canceled)
+            OnJumpUpInput();
+    }
+    public void OnDash(InputAction.CallbackContext input) => OnDashInput();
     private void Update()
     {
+        #region Timers
         lastOnGroundTime -= Time.deltaTime;
         lastPressedJumpTime -= Time.deltaTime;
 
-        _moveInput.x = Input.GetAxisRaw("Horizontal");
-        _moveInput.y = Input.GetAxisRaw("Vertical");
+        #endregion
 
-        if (_moveInput.x != 0)
-            CheckDirectionToFace(_moveInput.x > 0);
-        if (Input.GetButtonDown("Jump"))
-            OnJumpInput();
-        if (Input.GetButtonUp("Jump"))
-            OnJumpUpInput();
-
-        if (!isJumping)
+        #region Collision Checks
+        if (!isJumping && !isDashing)
         {
             if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
             {
@@ -66,7 +88,8 @@ public abstract class Movement : Health
                 _jumpQuantity--;
             }
         }
-
+        #endregion
+        #region Jump Checks
         if (isJumping && _rb.velocity.y < 0)
         {
             isJumping = false;
@@ -87,12 +110,14 @@ public abstract class Movement : Health
             _jumpQuantity--;
             Jump();
         }
-
+        #endregion
+        #region Slide Checks
         if (CanSlide())
             isSliding = true;
         else
             isSliding = false;
-
+        #endregion
+        #region Gravity
         if (isSliding)
             SetGravityScale(0);
         else if (_rb.velocity.y < 0 && _moveInput.y < 0)
@@ -116,13 +141,20 @@ public abstract class Movement : Health
         }
         else
             SetGravityScale(Data.gravityScale);
+        #endregion
     }
     private void FixedUpdate()
     {
         Move();
         if (isSliding)
+        {
             Slide();
+            Animator.SetBool("Falling", true);
+        }
+        else
+            Animator.SetBool("Falling", false);
     }
+    #region Input Functions
     private void OnJumpInput()
     {
         lastPressedJumpTime = Data.jumpInputBufferTime;
@@ -132,6 +164,11 @@ public abstract class Movement : Health
         if (CanJumpCut())
             _isJumpCut = true;
     }
+    private void OnDashInput()
+    {
+        lastPressedDashTime = Data.dashInputBufferTime;
+    }
+    #endregion
     private void SetGravityScale(float scale)
     {
         _rb.gravityScale = scale;
@@ -168,6 +205,8 @@ public abstract class Movement : Health
     }
     private void Jump()
     {
+        Animator.SetBool("Falling", false);
+        Animator.SetTrigger("Jumping");
         lastPressedJumpTime = 0;
         lastOnGroundTime = 0;
         float force = Data.jumpForce;

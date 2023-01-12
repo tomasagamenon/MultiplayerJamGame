@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5a537dd73c241428b139eff8749755, type: 3}
   m_Name: Orc
   m_EditorClassIdentifier: 
+  maxHealth: 7
+  maxStamina: 0
+  regeneration: 0
+  recoverRate: 0
   gravityStrenght: -52
   gravityScale: 1.7333333
   fallGravityMult: 2
@@ -43,3 +47,12 @@ MonoBehaviour:
   slideAccel: 12
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
+  dashAmount: 0
+  dashSpeed: 0
+  dashSleepTime: 0
+  dashAttackTime: 0
+  dashEndTime: 0
+  dashEndSpeed: {x: 0, y: 0}
+  dashEndRunLerp: 0
+  dashRefillTime: 0
+  dashInputBufferTime: 0
