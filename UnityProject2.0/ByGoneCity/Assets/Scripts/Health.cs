@@ -10,10 +10,10 @@ public abstract class Health : MonoBehaviour
     protected Animator Animator;
     protected int actualHealth;
     [SerializeField]
-    private int iFramesSeconds;
-    private bool iFrames;
-    public int ActualHealth { get { return actualHealth; } set { if (iFrames && actualHealth < value) return;
-            actualHealth = value; StartCoroutine(IFrames()); CheckDeath(); } }
+    private int _iFramesSeconds;
+    private bool isInvulnerable;
+    public int ActualHealth { get { return actualHealth; } set { if (isInvulnerable && actualHealth < value) return;
+            actualHealth = value; StartIFrames(_iFramesSeconds); CheckDeath(); } }
 
     protected virtual void Start()
     {
@@ -30,11 +30,14 @@ public abstract class Health : MonoBehaviour
     {
         
     }
-
-    IEnumerator IFrames()
+    protected void StartIFrames(float iFramesSeconds)
     {
-        iFrames = true;
+        StartCoroutine(IFrames(iFramesSeconds));
+    }
+    IEnumerator IFrames(float iFramesSeconds)
+    {
+        isInvulnerable = true;
         yield return new WaitForSeconds(iFramesSeconds);
-        iFrames = false;
+        isInvulnerable = false;
     }
 }

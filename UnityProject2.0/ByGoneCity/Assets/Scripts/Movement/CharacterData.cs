@@ -42,11 +42,11 @@ public class CharacterData : ScriptableObject
     public float jumpHangTimeThreshold;
     public float jumpHangAccelerationMult, jumpHangMaxSpeedMult;
 
-    [Header("Wall Jump")]
-    public Vector2 wallJumpForce;
-    [Range(0f, 1f)] public float wallJumpRunLerp;
-    [Range(0f, 1.5f)] public float wallJumpTime;
-    public bool doTurnOnWallJump;
+    //[Header("Wall Jump")]
+    //public Vector2 wallJumpForce;
+    //[Range(0f, 1f)] public float wallJumpRunLerp;
+    //[Range(0f, 1.5f)] public float wallJumpTime;
+    //public bool doTurnOnWallJump;
 
     [Header("Slide")]
     public float slideSpeed;
@@ -57,14 +57,14 @@ public class CharacterData : ScriptableObject
     [Range(0.01f, 0.5f)]public float jumpInputBufferTime;
 
     [Header("Dash")]
-    public int dashAmount;
-    public float dashSpeed;
-    public float dashSleepTime;
-    public float dashAttackTime;
-    public float dashEndTime;
-    public Vector2 dashEndSpeed;
-    [Range(0f, 1f)] public float dashEndRunLerp;
-    public float dashRefillTime;
+    public int dashForce;
+    public float dashISeconds;
+    public float downwardForce;
+    public float staminaCost;
+    //public float dashEndTime;
+    //public Vector2 dashEndSpeed;
+    //[Range(0f, 1f)] public float dashEndRunLerp;
+    //public float dashRefillTime;
     [Range(0.01f, 0.5f)] public float dashInputBufferTime;
 
     private void OnValidate()

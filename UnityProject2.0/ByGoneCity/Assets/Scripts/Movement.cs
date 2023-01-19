@@ -21,15 +21,11 @@ public abstract class Movement : Stamina
     private bool _isJumpCut;
     private bool _isJumpFalling;
     private int _jumpQuantity;
-    //Dash
-    private int _dashesLeft;
-    private Vector2 _lastDashDir;
-    private bool _isDashAttacking;
     #endregion
     #region Input Parameters
     private Vector2 _moveInput;
-    protected float lastPressedJumpTime;
-    protected float lastPressedDashTime;
+    private float lastPressedJumpTime;
+    private float lastPressedDashTime;
     #endregion
 
     #region Check Parameters
@@ -66,12 +62,18 @@ public abstract class Movement : Stamina
         if (input.canceled)
             OnJumpUpInput();
     }
-    public void OnDash(InputAction.CallbackContext input) => OnDashInput();
+    public void OnDash()
+    {
+        Debug.Log("Dash imput");
+        OnDashInput();
+    }
+
     private void Update()
     {
         #region Timers
         lastOnGroundTime -= Time.deltaTime;
         lastPressedJumpTime -= Time.deltaTime;
+        lastPressedDashTime -= Time.deltaTime;
 
         #endregion
 
@@ -101,14 +103,24 @@ public abstract class Movement : Stamina
             _isJumpCut = false;
             _isJumpFalling = false;
         }
-
-        if (CanJump() && lastPressedJumpTime > 0)
+        if (!isDashing)
         {
-            isJumping = true;
-            _isJumpCut = false;
-            _isJumpFalling = false;
-            _jumpQuantity--;
-            Jump();
+            if (CanJump() && lastPressedJumpTime > 0)
+            {
+                isJumping = true;
+                _isJumpCut = false;
+                _isJumpFalling = false;
+                _jumpQuantity--;
+                Jump();
+            }
+        }
+        #endregion
+        #region Dash Cheks
+        if(CanDash() && lastPressedDashTime > 0)
+        {
+            Debug.Log("Activating dash");
+            isDashing = true;
+            Dash();
         }
         #endregion
         #region Slide Checks
@@ -215,6 +227,21 @@ public abstract class Movement : Stamina
 
         _rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
+    private void Dash()
+    {
+        Debug.Log("Dashed");
+        Animator.SetBool("Rolling", true);
+        lastPressedDashTime = 0;
+        StartIFrames(Data.dashISeconds);
+        float force = Data.dashForce;
+        _rb.velocity = new Vector2(0, 0);
+        _rb.AddForce(new Vector2(_moveInput.x, 0.5f) * Data.dashForce, ForceMode2D.Impulse);
+    }
+    public void EndDash()
+    {
+        Animator.SetBool("Rolling", false);
+        isDashing = false;
+    }
     private void Slide()
     {
         float speedDif = Data.slideSpeed - _rb.velocity.y;
@@ -233,6 +260,11 @@ public abstract class Movement : Stamina
     private bool CanJump()
     {
         return (lastOnGroundTime > 0 && !isJumping) || _jumpQuantity > 0;
+    }
+    private bool CanDash()
+    {
+        Debug.Log("Can dash?");
+        return !isDashing;
     }
     private bool CanJumpCut()
     {

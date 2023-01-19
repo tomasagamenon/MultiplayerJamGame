@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5a537dd73c241428b139eff8749755, type: 3}
   m_Name: Gnome
   m_EditorClassIdentifier: 
-  maxHealth: 7
+  maxHealth: 3
   maxStamina: 0
   regeneration: 0
   recoverRate: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   accelInAir: 1
   deccelInAir: 1
   doConserveMomentum: 0
-  jumpQuantity: 2
+  jumpQuantity: 1
   jumpHeight: 6.5
   jumpTimeToApex: 0.5
   jumpForce: 26
@@ -39,20 +39,12 @@ MonoBehaviour:
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 8.5, y: 20}
-  wallJumpRunLerp: 0.075
-  wallJumpTime: 0.3
-  doTurnOnWallJump: 0
   slideSpeed: -12
   slideAccel: 12
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
-  dashAmount: 0
-  dashSpeed: 0
-  dashSleepTime: 0
-  dashAttackTime: 0
-  dashEndTime: 0
-  dashEndSpeed: {x: 0, y: 0}
-  dashEndRunLerp: 0
-  dashRefillTime: 0
-  dashInputBufferTime: 0
+  dashForce: 50
+  dashISeconds: 0.5
+  downwardForce: 0
+  staminaCost: 0
+  dashInputBufferTime: 0.1
