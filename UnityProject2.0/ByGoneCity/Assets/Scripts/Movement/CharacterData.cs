@@ -59,13 +59,12 @@ public class CharacterData : ScriptableObject
     [Header("Dash")]
     public int dashForce;
     public float dashISeconds;
-    public float downwardForce;
     public float staminaCost;
-    //public float dashEndTime;
-    //public Vector2 dashEndSpeed;
-    //[Range(0f, 1f)] public float dashEndRunLerp;
-    //public float dashRefillTime;
     [Range(0.01f, 0.5f)] public float dashInputBufferTime;
+
+    [Header("Punch")]
+    public int punchCombo;
+    public int punchDamage;
 
     private void OnValidate()
     {

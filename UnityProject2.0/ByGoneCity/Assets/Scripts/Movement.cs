@@ -52,7 +52,6 @@ public abstract class Movement : Stamina
         _moveInput = input.ReadValue<Vector2>();
         if (_moveInput.x != 0)
             CheckDirectionToFace(_moveInput.x > 0);
-        Animator.SetFloat("Speed", Mathf.Abs(_moveInput.x));
     }
 
     public void OnJump(InputAction.CallbackContext input)
@@ -116,7 +115,7 @@ public abstract class Movement : Stamina
         }
         #endregion
         #region Dash Cheks
-        if(CanDash() && lastPressedDashTime > 0)
+        if(lastPressedDashTime > 0 && CanDash())
         {
             Debug.Log("Activating dash");
             isDashing = true;
@@ -157,7 +156,8 @@ public abstract class Movement : Stamina
     }
     private void FixedUpdate()
     {
-        Move();
+        if(!isDashing)
+            Move();
         if (isSliding)
         {
             Slide();
@@ -187,6 +187,7 @@ public abstract class Movement : Stamina
     }
     private void Move()
     {
+        Animator.SetFloat("Speed", Mathf.Abs(_moveInput.x));
         float targetSpeed = _moveInput.x * Data.runMaxSpeed;
 
         float accelRate;
@@ -201,8 +202,8 @@ public abstract class Movement : Stamina
             accelRate *= Data.jumpHangAccelerationMult;
             targetSpeed *= Data.jumpHangMaxSpeedMult;
         }
-        if (Data.doConserveMomentum && Mathf.Abs(_rb.velocity.x) > 
-            Mathf.Abs(targetSpeed) && Mathf.Sign(_rb.velocity.x) == Mathf.Sign(targetSpeed) && lastOnGroundTime < 0)
+        if (Data.doConserveMomentum && Mathf.Abs(_rb.velocity.x) > Mathf.Abs(targetSpeed) && 
+            Mathf.Sign(_rb.velocity.x) == Mathf.Sign(targetSpeed) && lastOnGroundTime < 0)
         {
             accelRate = 0;
         }
@@ -233,9 +234,14 @@ public abstract class Movement : Stamina
         Animator.SetBool("Rolling", true);
         lastPressedDashTime = 0;
         StartIFrames(Data.dashISeconds);
-        float force = Data.dashForce;
-        _rb.velocity = new Vector2(0, 0);
-        _rb.AddForce(new Vector2(_moveInput.x, 0.5f) * Data.dashForce, ForceMode2D.Impulse);
+        float speedDif = Data.dashForce - Mathf.Abs(_rb.velocity.x);
+        int direction;
+        if (isFacingRight)
+            direction = 1;
+        else
+            direction = -1;
+        Debug.Log("diferencia de velocidad= " + speedDif + " y direccion= " + direction);
+        _rb.AddForce(new Vector2(direction, 0.1f) * speedDif, ForceMode2D.Impulse);
     }
     public void EndDash()
     {

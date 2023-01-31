@@ -43,8 +43,9 @@ MonoBehaviour:
   slideAccel: 12
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
-  dashForce: 50
-  dashISeconds: 0.5
-  downwardForce: 0
+  dashForce: 10
+  dashISeconds: 0.2
   staminaCost: 0
   dashInputBufferTime: 0.1
+  punchCombo: 2
+  punchDamage: 0
