@@ -23,6 +23,7 @@ MonoBehaviour:
   fastFallGravityMult: 2
   maxFastFallSpeed: 22
   runMaxSpeed: 9.5
+  runSlowMultiplier: 0.33
   runAcceleration: 9.5
   runAccelAmount: 50
   runDecceleration: 9.5
@@ -47,5 +48,10 @@ MonoBehaviour:
   dashISeconds: 0.2
   staminaCost: 0
   dashInputBufferTime: 0.1
-  punchCombo: 2
-  punchDamage: 0
+  attackCombo: 1
+  attackDamage: 10
+  attackArea: 0.4
+  attackKnockback: 5
+  attackLayers:
+    serializedVersion: 2
+    m_Bits: 256

@@ -21,6 +21,7 @@ public class CharacterData : ScriptableObject
 
     [Header("Run")]
     public float runMaxSpeed;
+    [Range(0f, 1f)] public float runSlowMultiplier;
     public float runAcceleration;
     [HideInInspector] public float runAccelAmount;
     public float runDecceleration;
@@ -63,8 +64,11 @@ public class CharacterData : ScriptableObject
     [Range(0.01f, 0.5f)] public float dashInputBufferTime;
 
     [Header("Punch")]
-    public int punchCombo;
-    public int punchDamage;
+    public int attackCombo;
+    public int attackDamage;
+    public float attackArea;
+    public float attackKnockback;
+    public LayerMask attackLayers;
 
     private void OnValidate()
     {

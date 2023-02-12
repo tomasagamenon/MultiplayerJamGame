@@ -13,7 +13,8 @@ public abstract class Health : MonoBehaviour
     private int _iFramesSeconds;
     private bool isInvulnerable;
     public int ActualHealth { get { return actualHealth; } set { if (isInvulnerable && actualHealth < value) return;
-            actualHealth = value; StartIFrames(_iFramesSeconds); CheckDeath(); } }
+            actualHealth = value; StartIFrames(_iFramesSeconds); CheckDeath();
+            Debug.Log(this.name + " le queda de vida: " + actualHealth); } }
 
     protected virtual void Start()
     {
@@ -28,7 +29,7 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void Death()
     {
-        
+        Debug.Log("La entidad " + this.name + " murio :c");
     }
     protected void StartIFrames(float iFramesSeconds)
     {

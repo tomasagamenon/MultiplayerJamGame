@@ -15,6 +15,7 @@ public abstract class Movement : Stamina
     protected bool isJumping;
     protected bool isSliding;
     protected bool isDashing;
+    protected bool isSlowed;
     // Timer
     protected float lastOnGroundTime;
     // Jump
@@ -61,10 +62,11 @@ public abstract class Movement : Stamina
         if (input.canceled)
             OnJumpUpInput();
     }
-    public void OnDash()
+    public void OnDash(InputAction.CallbackContext input)
     {
-        Debug.Log("Dash imput");
-        OnDashInput();
+        if(input.performed)
+            OnDashInput();
+        //Debug.Log("Dash imput");
     }
 
     private void Update()
@@ -189,7 +191,8 @@ public abstract class Movement : Stamina
     {
         Animator.SetFloat("Speed", Mathf.Abs(_moveInput.x));
         float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-
+        if (isSlowed)
+            targetSpeed *= Data.runSlowMultiplier;
         float accelRate;
         if (lastOnGroundTime > 0)
             accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
@@ -215,6 +218,7 @@ public abstract class Movement : Stamina
     {
         sprite.flipX = isFacingRight;
         isFacingRight = !isFacingRight;
+        SendMessage("Turning");
     }
     private void Jump()
     {
@@ -283,7 +287,7 @@ public abstract class Movement : Stamina
         else
             return false;
     }
-    private void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
