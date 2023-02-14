@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stamina : Health
@@ -11,8 +9,9 @@ public class Stamina : Health
     {
         actualStamina = Data.maxStamina;
     }
-    private void Update()
+    protected virtual void Update()
     {
+        //Debug.Log("Update Stamina");
         if (actualStamina < Data.maxStamina && Time.time >= recoverCooldown)
         {
             actualStamina = Mathf.Clamp(actualStamina + (Data.regeneration * Time.deltaTime), 0f, Data.maxStamina);

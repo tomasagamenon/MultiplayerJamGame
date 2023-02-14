@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gnome
   m_EditorClassIdentifier: 
   maxHealth: 3
-  maxStamina: 0
-  regeneration: 0
-  recoverRate: 0
+  maxStamina: 100
+  regeneration: 1
+  recoverRate: 1
   gravityStrenght: -52
   gravityScale: 1.7333333
   fallGravityMult: 2
@@ -46,7 +46,7 @@ MonoBehaviour:
   jumpInputBufferTime: 0.2
   dashForce: 10
   dashISeconds: 0.2
-  staminaCost: 0
+  dashCost: 0
   dashInputBufferTime: 0.1
   attackCombo: 1
   attackDamage: 10
@@ -55,3 +55,7 @@ MonoBehaviour:
   attackLayers:
     serializedVersion: 2
     m_Bits: 256
+  fireRate: 2.15
+  totalAmmo: 50
+  defaultAmmo: 15
+  initialAmmo: 15

@@ -14,7 +14,7 @@ public abstract class Movement : Stamina
     protected bool isFacingRight;
     protected bool isJumping;
     protected bool isSliding;
-    protected bool isDashing;
+    [SerializeField]protected bool isDashing;
     protected bool isSlowed;
     // Timer
     protected float lastOnGroundTime;
@@ -58,7 +58,9 @@ public abstract class Movement : Stamina
     public void OnJump(InputAction.CallbackContext input)
     {
         if (input.performed)
+        {
             OnJumpInput();
+        }
         if (input.canceled)
             OnJumpUpInput();
     }
@@ -69,8 +71,10 @@ public abstract class Movement : Stamina
         //Debug.Log("Dash imput");
     }
 
-    private void Update()
+    protected virtual new void Update()
     {
+        base.Update();
+        //Debug.Log("Update Movement");
         #region Timers
         lastOnGroundTime -= Time.deltaTime;
         lastPressedJumpTime -= Time.deltaTime;
@@ -273,8 +277,12 @@ public abstract class Movement : Stamina
     }
     private bool CanDash()
     {
-        Debug.Log("Can dash?");
-        return !isDashing;
+        if (!isDashing && EnoughStamina(Data.dashCost))
+        {
+            SpendStamina(Data.dashCost);
+            return true;
+        }
+        return false;
     }
     private bool CanJumpCut()
     {

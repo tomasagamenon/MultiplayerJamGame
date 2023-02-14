@@ -60,7 +60,7 @@ public class CharacterData : ScriptableObject
     [Header("Dash")]
     public int dashForce;
     public float dashISeconds;
-    public float staminaCost;
+    public float dashCost;
     [Range(0.01f, 0.5f)] public float dashInputBufferTime;
 
     [Header("Punch")]
@@ -69,6 +69,11 @@ public class CharacterData : ScriptableObject
     public float attackArea;
     public float attackKnockback;
     public LayerMask attackLayers;
+    [Header("Gun")]
+    public float fireRate;
+    public int totalAmmo;
+    public int defaultAmmo;
+    public int initialAmmo;
 
     private void OnValidate()
     {
