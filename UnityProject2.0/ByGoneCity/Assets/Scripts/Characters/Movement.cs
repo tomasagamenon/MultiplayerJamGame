@@ -36,13 +36,14 @@ public abstract class Movement : Stamina
 
     [SerializeField] private LayerMask _groundLayer;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
-    new private void Start()
+    new protected virtual void Start()
     {
+        base.Start();
         isFacingRight = true;
         sprite.flipX = false;
         SetGravityScale(Data.gravityScale);

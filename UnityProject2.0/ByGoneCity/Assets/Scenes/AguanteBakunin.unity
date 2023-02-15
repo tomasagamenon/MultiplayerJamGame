@@ -614,9 +614,7 @@ MonoBehaviour:
   - {fileID: 1171082085}
   - {fileID: 1745053184}
   - {fileID: 1249991483}
-  bullet: {fileID: 7741827666218903996, guid: ce58639b5e797bd49bca31dfba23a213, type: 3}
-  direction: {x: 0, y: 0}
-  drawnWeapon: 0
+  bulletPrefab: {fileID: 7741827666218903996, guid: ce58639b5e797bd49bca31dfba23a213, type: 3}
   attackPoint: {fileID: 481129912}
 --- !u!58 &409604550
 CircleCollider2D:
@@ -1305,7 +1303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565713085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

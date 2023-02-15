@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
     public float speed;
     public int damage;
     public float lifeTime;
-    private void Awake()
+    private float _lifeLeft;
+    ObjectPool<Bullet> _pool;
+    private void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        SetVelocity();
     }
     private void Update()
     {
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0)
-            Destroy(gameObject);
+        _lifeLeft -= Time.deltaTime;
+        if (_lifeLeft <= 0)
+            _pool.Release(this);
+    }
+    public void SetPool(ObjectPool<Bullet> pool)
+    {
+        Debug.Log("setpool");
+        _pool = pool;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +35,14 @@ public class Bullet : MonoBehaviour
         //{
 
         //}
-        Destroy(gameObject);
+        _pool.Release(this);
+    }
+    public void ResetLifeLeft()
+    {
+        _lifeLeft = lifeTime;
+    }
+    public void SetVelocity()
+    {
+        GetComponent<Rigidbody2D>().velocity = transform.right * speed;
     }
 }

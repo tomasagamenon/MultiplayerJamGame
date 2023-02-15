@@ -6,15 +6,21 @@ public abstract class Gun : Movement
 {
     [SerializeField] private Transform gunPoint;
     [SerializeField] private Transform[] gunDirections = new Transform[5];
-    [SerializeField] private GameObject bullet;
-    public Vector2 direction;
-    public bool drawnWeapon = false;
+    [SerializeField] private GameObject bulletPrefab;
+    private Vector2 direction;
+    private bool drawnWeapon = false;
     private float cooldown;
     private float actualAmmo;
-    private IObjectPool<Bullet> pool;
+    private ObjectPool<Bullet> pool;
 
+    private new void Awake()
+    {
+        base.Awake();
+        pool = new ObjectPool<Bullet>(CreateBullet, OnTakeBulletFromPool, OnReturnBulletToPool);
+    }
     private new void Start()
     {
+        base.Start();
         actualAmmo = Data.initialAmmo;
         AmmoUpdate();
     }
@@ -44,7 +50,10 @@ public abstract class Gun : Movement
         {
             if (actualAmmo > 0)
             {
-                Instantiate<GameObject>(bullet, gunPoint.position, gunPoint.rotation);
+                //Instantiate<GameObject>(bulletPrefab, gunPoint.position, gunPoint.rotation);
+                var bullet = pool.Get();
+                bullet.transform.SetPositionAndRotation(gunPoint.position, gunPoint.rotation);
+                bullet.SetVelocity();
                 actualAmmo--;
                 AmmoUpdate();
                 cooldown = Time.time + 1f / Data.fireRate;
@@ -137,5 +146,27 @@ public abstract class Gun : Movement
     private void AmmoUpdate()
     {
         //lenar barra de municion
+    }
+    private Bullet CreateBullet()
+    {
+        Debug.Log("createbullet");
+        var bullet = Instantiate(bulletPrefab).GetComponent<Bullet>();
+        bullet.SetPool(pool);
+        bullet.damage = Data.bulletDamage;
+        bullet.speed = Data.bulletSpeed;
+        bullet.lifeTime = Data.bulletDuration;
+        bullet.ResetLifeLeft();
+        return bullet;
+    }
+    private void OnTakeBulletFromPool(Bullet bullet)
+    {
+        Debug.Log("ontakebulletfrompool");
+        bullet.gameObject.SetActive(true);
+        //bullet.lifeTime = Data.bulletDuration;
+        bullet.ResetLifeLeft();
+    }
+    private void OnReturnBulletToPool(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(false);
     }
 }

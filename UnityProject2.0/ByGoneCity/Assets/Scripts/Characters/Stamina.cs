@@ -5,7 +5,7 @@ public class Stamina : Health
     protected float actualStamina;
     protected float recoverCooldown;
 
-    new private void Start()
+    new protected virtual void Start()
     {
         actualStamina = Data.maxStamina;
     }

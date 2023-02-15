@@ -70,6 +70,9 @@ public class CharacterData : ScriptableObject
     public float attackKnockback;
     public LayerMask attackLayers;
     [Header("Gun")]
+    public int bulletDamage;
+    public float bulletDuration;
+    public float bulletSpeed;
     public float fireRate;
     public int totalAmmo;
     public int defaultAmmo;
