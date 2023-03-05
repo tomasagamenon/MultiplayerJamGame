@@ -43,6 +43,7 @@ public abstract class Gun : Movement
     private void DrawGun()
     {
         drawnWeapon = !drawnWeapon;
+        Animator.SetBool("Gun", drawnWeapon);
     }
     private void Shoot()
     {
@@ -82,8 +83,6 @@ public abstract class Gun : Movement
             return;
         Vector2 newPosition = gunDirections[4].position;
         Quaternion newRotation = gunDirections[4].rotation;
-        //Animator.SetFloat("wDirectionX", direction.x);
-        //Animator.SetFloat("wDirectionY", direction.y);
         if (!drawnWeapon)
         {
             Debug.Log("no esta el arma");
@@ -95,12 +94,24 @@ public abstract class Gun : Movement
             {
                 newPosition = gunDirections[3].position;
                 newRotation = gunDirections[3].rotation;
-                //apunta en diagonal derecha
+                if (_moveInput.x == 0)
+                    Animator.SetInteger("AimState", 3);
+                else if (_moveInput.x > 0.1)
+                    Animator.SetInteger("AimState", 3);
+                else
+                    Animator.SetInteger("AimState", 1);
+                //apunta en diagonal derecha caminando a la derecha
             }
             else
             {
                 newPosition = gunDirections[4].position;
                 newRotation = gunDirections[4].rotation;
+                if (_moveInput.x == 0)
+                    Animator.SetInteger("AimState", 4);
+                else if (_moveInput.x > 0.1)
+                    Animator.SetInteger("AimState", 4);
+                else
+                    Animator.SetInteger("AimState", 0);
                 //apunta a la derecha
             }
         }
@@ -110,12 +121,24 @@ public abstract class Gun : Movement
             {
                 newPosition = gunDirections[1].position;
                 newRotation = gunDirections[1].rotation;
+                if (_moveInput.x == 0)
+                    Animator.SetInteger("AimState", 1);
+                else if (_moveInput.x > 0.1)
+                    Animator.SetInteger("AimState", 1);
+                else
+                    Animator.SetInteger("AimState", 3);
                 //apunta en diagonal izquierda
             }
             else
             {
                 newPosition = gunDirections[0].position;
                 newRotation = gunDirections[0].rotation;
+                if (_moveInput.x == 0)
+                    Animator.SetInteger("AimState", 0);
+                else if (_moveInput.x > 0.1)
+                    Animator.SetInteger("AimState", 0);
+                else
+                    Animator.SetInteger("AimState", 4);
                 //apunta a la izquierda
             }
         }
@@ -123,6 +146,7 @@ public abstract class Gun : Movement
         {
             newPosition = gunDirections[2].position;
             newRotation = gunDirections[2].rotation;
+            Animator.SetInteger("AimState", 2);
             //apunta hacia arriba
         }
         if ((Vector2)gunPoint.position == newPosition)
@@ -138,9 +162,11 @@ public abstract class Gun : Movement
         {
             actualAmmo = Mathf.Clamp(ammo + actualAmmo, 0, Data.totalAmmo);
             AmmoUpdate();
+            Debug.Log("municion= " + actualAmmo);
             //audio de agarrar municion
             return true;
         }
+        Debug.Log("municion llena");
         return false;
     }
     private void AmmoUpdate()

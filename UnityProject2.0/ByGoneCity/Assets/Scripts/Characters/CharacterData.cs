@@ -77,6 +77,14 @@ public class CharacterData : ScriptableObject
     public int totalAmmo;
     public int defaultAmmo;
     public int initialAmmo;
+    [Header("Shield")]
+    public float pushCost;
+    public float pushKnockback;
+    public float pushRate;
+    public LayerMask pushLayers;
+    public float shieldCost;
+    public float shieldKnockback;
+
 
     private void OnValidate()
     {

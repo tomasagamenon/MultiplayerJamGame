@@ -22,7 +22,7 @@ public class Stamina : Health
             }
         }
     }
-    protected void SpendStamina(float amount)
+    public void SpendStamina(float amount)
     {
         actualStamina -= amount;
         recoverCooldown = Time.time + Data.recoverRate;
@@ -32,7 +32,7 @@ public class Stamina : Health
             //Audio de sin stamina
         }
     }
-    protected bool EnoughStamina(float expected)
+    public bool EnoughStamina(float expected)
     {
         if (expected < actualStamina)
             return true;

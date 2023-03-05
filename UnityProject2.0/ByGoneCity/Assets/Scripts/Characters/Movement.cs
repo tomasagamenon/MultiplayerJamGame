@@ -8,7 +8,7 @@ public abstract class Movement : Stamina
     // Character movement values
 
     private Rigidbody2D _rb;
-    private SpriteRenderer sprite;
+    protected SpriteRenderer sprite;
     #region State Parameters
     // States
     protected bool isFacingRight;
@@ -24,7 +24,7 @@ public abstract class Movement : Stamina
     private int _jumpQuantity;
     #endregion
     #region Input Parameters
-    private Vector2 _moveInput;
+    protected Vector2 _moveInput;
     private float lastPressedJumpTime;
     private float lastPressedDashTime;
     #endregion
@@ -223,7 +223,7 @@ public abstract class Movement : Stamina
     {
         sprite.flipX = isFacingRight;
         isFacingRight = !isFacingRight;
-        SendMessage("Turning");
+        SendMessage("Turning", SendMessageOptions.DontRequireReceiver);
     }
     private void Jump()
     {

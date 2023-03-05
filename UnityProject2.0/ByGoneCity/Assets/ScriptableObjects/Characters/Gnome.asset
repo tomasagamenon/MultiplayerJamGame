@@ -61,4 +61,4 @@ MonoBehaviour:
   fireRate: 4
   totalAmmo: 50
   defaultAmmo: 15
-  initialAmmo: 50
+  initialAmmo: 15

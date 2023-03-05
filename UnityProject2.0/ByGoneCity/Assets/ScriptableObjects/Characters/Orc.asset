@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   maxHealth: 7
-  maxStamina: 0
-  regeneration: 0
-  recoverRate: 0
+  maxStamina: 100
+  regeneration: 1
+  recoverRate: 1
   gravityStrenght: -52
   gravityScale: 1.7333333
   fallGravityMult: 2
@@ -23,6 +23,7 @@ MonoBehaviour:
   fastFallGravityMult: 2
   maxFastFallSpeed: 22
   runMaxSpeed: 9.5
+  runSlowMultiplier: 0.33
   runAcceleration: 9.5
   runAccelAmount: 50
   runDecceleration: 9.5
@@ -39,20 +40,33 @@ MonoBehaviour:
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 8.5, y: 20}
-  wallJumpRunLerp: 0.075
-  wallJumpTime: 0.3
-  doTurnOnWallJump: 0
   slideSpeed: -12
   slideAccel: 12
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
-  dashAmount: 0
-  dashSpeed: 0
-  dashSleepTime: 0
-  dashAttackTime: 0
-  dashEndTime: 0
-  dashEndSpeed: {x: 0, y: 0}
-  dashEndRunLerp: 0
-  dashRefillTime: 0
+  dashForce: 0
+  dashISeconds: 0
+  dashCost: 0
   dashInputBufferTime: 0
+  attackCombo: 0
+  attackDamage: 0
+  attackArea: 0
+  attackKnockback: 0
+  attackLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletDamage: 0
+  bulletDuration: 0
+  bulletSpeed: 0
+  fireRate: 0
+  totalAmmo: 0
+  defaultAmmo: 0
+  initialAmmo: 0
+  pushCost: 15
+  pushKnockback: 20
+  pushRate: 2
+  pushLayers:
+    serializedVersion: 2
+    m_Bits: 384
+  shieldCost: 5
+  shieldKnockback: 20
