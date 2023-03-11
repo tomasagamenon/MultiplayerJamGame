@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System;
 
-public class Audio : MonoBehaviour
+[Serializable]
+public class Audio
 {
     public string audioName;
 

@@ -53,7 +53,7 @@
                 {
                     "name": "Swap",
                     "type": "Button",
-                    "id": "3aa46ecf-b065-4ab9-95df-2604b003eb0a",
+                    "id": "a9a40624-64c7-4a67-81f6-343d51a8c673",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -283,11 +283,11 @@
                 },
                 {
                     "name": "",
-                    "id": "517ee3db-92dd-4da9-b818-8eda47feebbe",
+                    "id": "b7a8eca3-da36-4a10-af77-16eb4f354a6e",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "Swap",
                     "isComposite": false,
                     "isPartOfComposite": false

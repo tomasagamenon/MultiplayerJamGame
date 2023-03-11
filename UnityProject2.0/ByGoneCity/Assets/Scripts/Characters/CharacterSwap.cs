@@ -11,8 +11,8 @@ public class CharacterSwap : MonoBehaviour
     private bool gnomeEnabled;
     private void Awake()
     {
-        orcEnabled = orc.GetComponent<PlayerInput>().isActiveAndEnabled;
-        gnomeEnabled = gnome.GetComponent<PlayerInput>().isActiveAndEnabled;
+        orcEnabled = orc.activeSelf;
+        gnomeEnabled = gnome.activeSelf;
     }
     public void OnSwap(InputAction.CallbackContext input)
     {
@@ -22,8 +22,10 @@ public class CharacterSwap : MonoBehaviour
     private void Swap()
     {
         orcEnabled = !orcEnabled;
-        orc.GetComponent<PlayerInput>().enabled = orcEnabled;
+        orc.SetActive(orcEnabled);
+        //orc.GetComponent<PlayerInput>().enabled = orcEnabled;
         gnomeEnabled = !gnomeEnabled;
-        gnome.GetComponent<PlayerInput>().enabled = gnomeEnabled;
+        gnome.SetActive(gnomeEnabled);
+        //gnome.GetComponent<PlayerInput>().enabled = gnomeEnabled;
     }
 }

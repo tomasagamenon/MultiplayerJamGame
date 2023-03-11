@@ -25,7 +25,7 @@ public class Gnome : Gun
                 //Calcular dirección del golpe
                 Vector2 direction = collider.transform.position - transform.position;
                 collider.GetComponent<Rigidbody2D>().AddForce(direction * Data.attackKnockback, ForceMode2D.Impulse);
-                //audio manager ejecutar "punchhit"
+                audioManager.Play("PunchHit1");
             }
             else if (collider.CompareTag("Lever"))
             {
@@ -42,7 +42,7 @@ public class Gnome : Gun
         attacking = true;
         isSlowed = true;
         Animator.SetTrigger("Punch" + combo);
-        //audio manager ejecutar "punch" + combo
+        audioManager.Play("Punch" + combo++);
     }
     public void StartCombo()
     {

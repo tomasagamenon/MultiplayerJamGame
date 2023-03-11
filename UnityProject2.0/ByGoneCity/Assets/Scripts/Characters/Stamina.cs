@@ -7,6 +7,8 @@ public class Stamina : Health
 
     new protected virtual void Start()
     {
+        Debug.Log("Start stamina");
+        base.Start();
         actualStamina = Data.maxStamina;
     }
     protected virtual void Update()
@@ -18,6 +20,7 @@ public class Stamina : Health
             //llenar barra
             if (actualStamina >= Data.maxStamina)
             {
+                audioManager.Play("StaminaRecharge");
                 //audio de stamina llena
             }
         }
@@ -29,6 +32,7 @@ public class Stamina : Health
         //vaciar barra
         if (actualStamina <= 0)
         {
+            audioManager.Play("StaminaDepleted");
             //Audio de sin stamina
         }
     }
@@ -36,6 +40,7 @@ public class Stamina : Health
     {
         if (expected < actualStamina)
             return true;
+        audioManager.Play("OutOfStamina");
         //audio sin stamina
         return false;
     }

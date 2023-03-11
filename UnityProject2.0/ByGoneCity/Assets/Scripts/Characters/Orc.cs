@@ -8,6 +8,7 @@ public class Orc : Movement
     [SerializeField] private Transform[] shieldDirections = new Transform[5];
     [SerializeField] private Transform shield;
     [SerializeField] private Collider2D pushCollider;
+    [SerializeField] private AudioManager shieldAudio;
     private bool drawnShield;
     private float cooldown;
     private Vector2 direction;
@@ -52,7 +53,7 @@ public class Orc : Movement
                 Physics2D.OverlapCollider(pushCollider, filter, colliders);
                 if(colliders.Count == 0)
                 {
-                    //ejecutar audio "cast"
+                    shieldAudio.Play("Push");
                     return;
                 }
                 foreach (Collider2D collider2D in colliders)
@@ -60,7 +61,7 @@ public class Orc : Movement
                     if (collider2D.gameObject.CompareTag("Lever"))
                     {
                         //codigo activar lever
-                        //audio de empuje secundario
+                        shieldAudio.Play("PushHit1");
                         return;
                     }
                     Vector2 direction = (Vector2)collider2D.transform.position - (Vector2)transform.position;
@@ -71,13 +72,12 @@ public class Orc : Movement
                         //inmovilizar gnomo
                     }
                     collider2D.GetComponent<Rigidbody2D>().AddForce(direction * Data.pushKnockback, ForceMode2D.Impulse);
-                    //audio de empuje
+                    shieldAudio.Play("PushHit2");
                 }
             }
             else
             {
                 Debug.Log("No hay stamina");
-                //audio sin stamina
             }
         }
     }
@@ -165,6 +165,13 @@ public class Orc : Movement
         drawnShield = !drawnShield;
         shield.gameObject.SetActive(drawnShield);
         isSlowed = drawnShield;
+        if (drawnShield)
+        {
+            shieldAudio.Play("ActivateShield");
+            shieldAudio.Play("ShieldPulseActive");
+        }
+        else
+            shieldAudio.StopPlaying("ShieldPulseActive");
         //Animator.SetBool("Shield", drawnShield);
     }
 }

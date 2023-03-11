@@ -36,13 +36,16 @@ public abstract class Movement : Stamina
 
     [SerializeField] private LayerMask _groundLayer;
 
-    protected virtual void Awake()
+    new protected virtual void Awake()
     {
+        Debug.Log("Awake movement");
+        base.Awake();
         _rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
     new protected virtual void Start()
     {
+        Debug.Log("Start movement");
         base.Start();
         isFacingRight = true;
         sprite.flipX = false;
@@ -117,6 +120,10 @@ public abstract class Movement : Stamina
                 _isJumpCut = false;
                 _isJumpFalling = false;
                 _jumpQuantity--;
+                if (Data.jumpQuantity > 1 && _jumpQuantity == 0)
+                    audioManager.Play("DoubleJump");
+                else
+                    audioManager.Play("Jump");
                 Jump();
             }
         }
@@ -239,6 +246,7 @@ public abstract class Movement : Stamina
     }
     private void Dash()
     {
+        audioManager.Play("Dash");
         Debug.Log("Dashed");
         Animator.SetBool("Rolling", true);
         lastPressedDashTime = 0;
@@ -295,6 +303,23 @@ public abstract class Movement : Stamina
             return true;
         else
             return false;
+    }
+    public void Step()
+    {
+        if (!isSliding)
+        {
+            int i = Random.Range(1, 5);
+            string audio = i switch
+            {
+                1 => "Footstep1",
+                2 => "Footstep2",
+                3 => "Footstep3",
+                4 => "Footstep4",
+                5 => "Footstep5",
+                _ => "",
+            };
+            audioManager.PlayOnce(audio);
+        }
     }
     protected void OnDrawGizmosSelected()
     {

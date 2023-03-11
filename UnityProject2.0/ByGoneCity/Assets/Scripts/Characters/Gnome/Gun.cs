@@ -15,11 +15,13 @@ public abstract class Gun : Movement
 
     private new void Awake()
     {
+        Debug.Log("Awake gun");
         base.Awake();
         pool = new ObjectPool<Bullet>(CreateBullet, OnTakeBulletFromPool, OnReturnBulletToPool);
     }
     private new void Start()
     {
+        Debug.Log("Start gun");
         base.Start();
         actualAmmo = Data.initialAmmo;
         AmmoUpdate();
@@ -58,14 +60,15 @@ public abstract class Gun : Movement
                 actualAmmo--;
                 AmmoUpdate();
                 cooldown = Time.time + 1f / Data.fireRate;
-                //if (Random.Range(0, 1) == 1)
-                //    //ejecutar audio de disparo 1
-                //else
-                //    //audio disparo 2
+                if (Random.Range(0, 1) == 1)
+                    audioManager.Play("Shoot1");
+                else
+                    audioManager.Play("Shoot2");
             }
             else
             {
                 Debug.Log("No ammo");
+                audioManager.Play("OutOfAmmo");
                 //audio sin municion
             }
         }
@@ -163,6 +166,7 @@ public abstract class Gun : Movement
             actualAmmo = Mathf.Clamp(ammo + actualAmmo, 0, Data.totalAmmo);
             AmmoUpdate();
             Debug.Log("municion= " + actualAmmo);
+            audioManager.Play("PickUpAmmo");
             //audio de agarrar municion
             return true;
         }

@@ -8,6 +8,7 @@ public abstract class Health : MonoBehaviour
     protected CharacterData Data;
     [SerializeField]
     protected Animator Animator;
+    protected AudioManager audioManager;
     protected int actualHealth;
     [SerializeField]
     private int _iFramesSeconds;
@@ -16,8 +17,14 @@ public abstract class Health : MonoBehaviour
             actualHealth = value; StartIFrames(_iFramesSeconds); CheckDeath();
             Debug.Log(this.name + " le queda de vida: " + actualHealth); } }
 
+    protected virtual void Awake()
+    {
+        Debug.Log("Awake health");
+        audioManager = GetComponent<AudioManager>();
+    }
     protected virtual void Start()
     {
+        Debug.Log("Start health");
         actualHealth = Data.maxHealth;
     }
 
@@ -30,6 +37,7 @@ public abstract class Health : MonoBehaviour
     protected virtual void Death()
     {
         Debug.Log("La entidad " + this.name + " murio :c");
+        audioManager.Play("Death");
     }
     protected void StartIFrames(float iFramesSeconds)
     {
