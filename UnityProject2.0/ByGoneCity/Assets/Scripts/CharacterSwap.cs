@@ -7,18 +7,22 @@ public class CharacterSwap : MonoBehaviour
 {
     public GameObject orc;
     public string orcControlScheme;
+    private PlayerInput orcInput;
     private bool orcEnabled;
     public GameObject gnome;
     public string gnomeControlScheme;
+    private PlayerInput gnomeInput;
     private bool gnomeEnabled;
     private void Awake()
     {
         orcEnabled = orc.GetComponent<PlayerInput>().enabled;
         gnomeEnabled = gnome.GetComponent<PlayerInput>().enabled;
         //PlayerInput.Instantiate()
+        gnomeInput = gnome.GetComponent<PlayerInput>();
+        gnomeInput.SwitchCurrentControlScheme(gnomeControlScheme, Keyboard.current);
+        orcInput = orc.GetComponent<PlayerInput>();
+        orcInput.SwitchCurrentControlScheme(orcControlScheme, Keyboard.current);
         GetComponent<PlayerInput>().SwitchCurrentControlScheme("Debug", Keyboard.current);
-        gnome.GetComponent<PlayerInput>().SwitchCurrentControlScheme(gnomeControlScheme, Keyboard.current);
-        orc.GetComponent<PlayerInput>().SwitchCurrentControlScheme(orcControlScheme, Keyboard.current);
     }
     public void OnSwap(InputAction.CallbackContext input)
     {
@@ -27,14 +31,24 @@ public class CharacterSwap : MonoBehaviour
     }
     private void Swap()
     {
-        // hacer manualmente que el scheme o controller o lo que sea, del personaje sea el teclado
-        orcEnabled = !orcEnabled;
-        //orc.SetActive(orcEnabled);
-        orc.GetComponent<PlayerInput>().enabled = orcEnabled;
-        orc.GetComponent<PlayerInput>().SwitchCurrentControlScheme(orcControlScheme, Keyboard.current);
-        gnomeEnabled = !gnomeEnabled;
-        //gnome.SetActive(gnomeEnabled);
-        gnome.GetComponent<PlayerInput>().enabled = gnomeEnabled;
-        gnome.GetComponent<PlayerInput>().SwitchCurrentControlScheme(gnomeControlScheme, Keyboard.current);
+        if (gnomeEnabled && orcEnabled)
+        {
+            orcEnabled = false;
+            orcInput.enabled = false;
+        }
+        else if (gnomeEnabled)
+        {
+            orcEnabled = true;
+            orcInput.enabled = true;
+            gnomeEnabled = false;
+            gnomeInput.enabled = false;
+        }
+        else
+        {
+            gnomeEnabled = true;
+            gnomeInput.enabled = true;
+        }
+        orcInput.SwitchCurrentControlScheme(orcControlScheme, Keyboard.current);
+        gnomeInput.SwitchCurrentControlScheme(gnomeControlScheme, Keyboard.current);
     }
 }

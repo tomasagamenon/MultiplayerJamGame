@@ -42,7 +42,8 @@ public class Gnome : Gun
         attacking = true;
         isSlowed = true;
         Animator.SetTrigger("Punch" + combo);
-        audioManager.Play("Punch" + combo++);
+        audioManager.Play("Punch" + (combo + 1));
+        Debug.Log("combo= " + combo);
     }
     public void StartCombo()
     {
@@ -60,7 +61,7 @@ public class Gnome : Gun
     }
     public void Turning()
     {
-        Debug.Log("se giro el golpe");
+        //Debug.Log("se giro el golpe");
         attackPoint.localPosition = new Vector2(-attackPoint.localPosition.x, attackPoint.localPosition.y);
     }
     new void OnDrawGizmosSelected()
