@@ -76,7 +76,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -98,7 +98,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -109,7 +109,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -120,7 +120,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -131,7 +131,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -164,7 +164,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;Player2;Player1",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -175,7 +175,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -219,7 +219,7 @@
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -230,7 +230,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -252,7 +252,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -263,7 +263,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -274,7 +274,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -285,7 +285,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -296,7 +296,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -307,7 +307,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Draw Weapon",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -371,7 +371,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;Player1;Player2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -393,7 +393,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -404,7 +404,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -415,7 +415,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -426,7 +426,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -459,7 +459,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;Player2;Player1",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -470,7 +470,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -525,7 +525,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -536,7 +536,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -547,7 +547,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player1;Player2",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -558,7 +558,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -569,7 +569,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Push",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -580,7 +580,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Player2;Player1",
                     "action": "Draw Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1244,6 +1244,38 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Player1",
+            "bindingGroup": "Player1",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Player2",
+            "bindingGroup": "Player2",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": true,
                     "isOR": false
                 }

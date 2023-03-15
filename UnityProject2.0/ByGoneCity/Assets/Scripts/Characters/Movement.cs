@@ -14,7 +14,7 @@ public abstract class Movement : Stamina
     protected bool isFacingRight;
     protected bool isJumping;
     protected bool isSliding;
-    [SerializeField]protected bool isDashing;
+    protected bool isDashing;
     protected bool isSlowed;
     // Timer
     protected float lastOnGroundTime;
@@ -78,7 +78,6 @@ public abstract class Movement : Stamina
     protected virtual new void Update()
     {
         base.Update();
-        //Debug.Log("Update Movement");
         #region Timers
         lastOnGroundTime -= Time.deltaTime;
         lastPressedJumpTime -= Time.deltaTime;
